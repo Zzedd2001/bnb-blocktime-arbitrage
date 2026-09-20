@@ -9,7 +9,7 @@ authors:
   - family-names: "[Family name]"
     given-names: "[Given name]"
     orcid: "https://orcid.org/[0000-0000-0000-0000]"
-repository-code: "https://github.com/[user]/bnb-blocktime-arbitrage"
+repository-code: "https://github.com/Zzedd2001/bnb-blocktime-arbitrage"
 identifiers:
   - type: doi
     value: "[10.5281/zenodo.xxxxxxx — assigned on acceptance]"
