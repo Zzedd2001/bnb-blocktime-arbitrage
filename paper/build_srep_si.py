@@ -96,23 +96,33 @@ appendices = appendices.replace("[[D5STUB]]", "**Table D5. Fork effects on the c
 clean = open(os.path.join(HERE, "tables_v6", "table_tau_sigma_clean.md"), encoding="utf-8").read()
 cj = json.load(open(os.path.join(HERE, "tables_v6", "tau_sigma_clean.json")))
 n = {k.split("|")[1]: v for k, v in cj.items() if k.startswith("n|")}
-s5_cap = ("**Supplementary Table S5. Response time and volatility on the subsamples whose opening time is unambiguous (arbitrage level).** "
+s5_cap = ("**Supplementary Table S5. Response time and volatility on the subsamples whose opening time is unambiguous, and by size of the crossing jump (arbitrage level).** "
           "Coefficient on log σ (the hour's Binance realised volatility) in an ordinary-least-squares regression of the arbitrage-level outcome — the log response time τ, "
           "or the indicator of landing in the first block sealed after the opening — on log σ with hour-of-day and pool fixed effects within each block-interval regime, "
           "three core 0.05% pools pooled, bot flow, ±30-day windows; rows \"with controls\" add the hour's log volume and log active liquidity. Standard errors clustered by "
-          "calendar day (30–31 clusters per regime) in parentheses, followed by the exact two-sided p-value. Panel A: all CEX-triggered arbitrages, the sample of Table 3, for comparison. "
+          "calendar day (31 clusters per regime) in parentheses, followed by the exact two-sided p-value from t(30). Panel A: all CEX-triggered arbitrages, the sample of Table 3, for comparison. "
           "Panel B: sharp openings, CEX-triggered arbitrages whose crossing trade carried the reference price at least ½γ beyond the band edge, so that t_open is unambiguous. "
-          "Panel C: on-chain-triggered arbitrages, whose τ is the difference between two block timestamps and involves no reference price. Panel D: sample sizes, "
-          "which are the n of the corresponding regressions.")
+          "Panel C: on-chain-triggered arbitrages, whose τ is the difference between two block timestamps and involves no reference price. "
+          "Panel D: for each sample, the inverse-variance-weighted mean of the six regime elasticities of log τ with controls, its standard error, its t-statistic against zero with the p-value under the normal approximation, "
+          "the t-statistic of its difference from the full-sample pooled value (difference divided by the standard error of the difference, the samples of Panels B and C being disjoint from, or a 1% subset of, that of Panel A) "
+          "and the heterogeneity statistic Q across regimes (χ² on five degrees of freedom). Panel B is under-powered — its pooled standard error of 0.065 could not distinguish an elasticity of −0.11 from zero at conventional levels — whereas Panel C, with a standard error of 0.024, carries the test. "
+          "Panel E: the full-sample (Panel A) elasticity with controls by size of the crossing jump J, the excess in basis points by which the crossing trade carried the reference price beyond the band edge "
+          "(bins at the quartiles of J up to 0.4 bp, then 0.4–1 bp, 1–2.5 bp and the sharp openings above ½γ = 2.5 bp), as coefficient (standard error) per regime, with the pooled elasticity and its p-value under the normal approximation, Q and the number of arbitrages per bin: "
+          "if the residual negative elasticity is what the opening convention produces on marginal crossings, it should be largest for the smallest J and vanish once the crossing clears the arbitrageurs' own thresholds. "
+          "Panel F: sample sizes, which are the n of the corresponding regressions, and the number of day-clusters.")
 panels = clean.split("\n**")[1:]     # blocks start with the bold sample label
 labels = ["Panel A. All CEX-triggered arbitrages (the sample of Table 3)", "Panel B. Sharp openings (crossing trade at least ½γ beyond the band edge)",
-          "Panel C. On-chain-triggered arbitrages (τ from block timestamps only)", "Panel D. Sample sizes per regime, three core pools pooled"]
+          "Panel C. On-chain-triggered arbitrages (τ from block timestamps only)",
+          "Panel D. Pooled elasticity of log τ to log σ with controls: inverse-variance-weighted mean of the six regime estimates",
+          "Panel E. All CEX-triggered arbitrages by size of the crossing jump J (bp beyond the band edge): elasticity of log τ to log σ with controls",
+          "Panel F. Sample sizes per regime, three core pools pooled"]
+assert len(panels) == len(labels), (len(panels), len(labels))
 s5_parts = [s5_cap]
 for lab, blk in zip(labels, panels):
     body = blk.split("**\n", 1)[1].strip()
     body = body.replace("| Sample / outcome |", "| Outcome |").replace(", with log volume and log liquidity", ", with controls")
     body = "\n".join(ln if re.match(r"^\|[:\-| ]+\|$", ln) else re.sub(r"-(?=\d)", "−", ln) for ln in body.split("\n"))
-    s5_parts.append(f"*{lab}*\n\n{body}")
+    s5_parts.append(("<<<pagebreak>>>\n\n" if lab.startswith("Panel E.") else "") + f"*{lab}*\n\n{body}")   # keep the ten-column panel on one page
 s5 = "\n\n".join(s5_parts)
 
 # ---- Supplementary Table S7: exact p-values of Table 3
@@ -130,9 +140,13 @@ def fp(p):
     return f"{p:.3f}" if p < 0.1 else f"{p:.2f}"
 
 
+import pandas as pd  # noqa: E402
+
+_H = pd.read_parquet(os.path.join(HERE, "vol_competition_panel.parquet"))
+G = {f"{f} {r}": int(_H[(_H["fork"] == f) & (_H["regime"] == r)]["day"].nunique()) for f in ("Lorentz", "Maxwell", "Fermi") for r in ("pre", "post")}
 s7 = ["**Supplementary Table S7. Exact two-sided p-values for every cell of Table 3.** Same regressions as Table 3 (coefficient on log σ within each block-interval regime, "
-      "hour-of-day and pool fixed effects, day-clustered standard errors; n = 1,086, 880, 875, 1,288, 1,104 and 1,557 pool-hours in the six regimes); p-values from the normal "
-      "distribution of the cluster-robust t-statistic, \"<0.001\" below that level.",
+      "hour-of-day and pool fixed effects, day-clustered standard errors; n = 1,086, 880, 875, 1,288, 1,104 and 1,557 pool-hours in the six regimes); p-values refer the cluster-robust "
+      "t-statistic to t(G − 1), G being the number of day-clusters (" + ", ".join(str(G[r]) for r in REG) + "), \"<0.001\" below that level.",
       "| Outcome | " + " | ".join(REG) + " |", "|:--|" + ":--|" * len(REG)]
 for tag, suffix in [("*No further controls*", ""), ("*With log volume and log active liquidity*", " +controls")]:
     s7.append(f"| {tag} |" + " |" * len(REG))
@@ -140,7 +154,7 @@ for tag, suffix in [("*No further controls*", ""), ("*With log volume and log ac
         cells = []
         for r in REG:
             x = vc[key][r + suffix]
-            cells.append(fp(2 * stats.norm.sf(abs(x["beta"] / x["se"]))))
+            cells.append(fp(2 * stats.t.sf(abs(x["beta"] / x["se"]), G[r] - 1)))
         s7.append(f"| {lab} | " + " | ".join(cells) + " |")
 s7 = "\n".join(s7)
 

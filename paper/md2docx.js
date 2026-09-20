@@ -124,6 +124,7 @@ while (i < lines.length) {
     }
     continue;
   }
+  if (line.trim() === "<<<pagebreak>>>") { children.push(new Paragraph({ children: [], pageBreakBefore: true })); i++; continue; }
   if (line.trim() === "") { i++; continue; }
   // paragraph (possibly multi-line)
   let text = line;
