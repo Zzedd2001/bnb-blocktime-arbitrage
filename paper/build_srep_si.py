@@ -163,6 +163,11 @@ head = ("# Supplementary Information for \"Faster blocks fall short of the squar
         "This Supplementary Information contains Supplementary Tables S1–S7 and Appendices A–E. Tables and figures with a letter prefix (A1, B1, …) belong to the appendices; unprefixed table and figure numbers refer to the main text.\n\n"
         "## Supplementary Tables\n\n")
 si = head + "\n\n".join([s1, s2, s3, s4, s5, s6, s7]) + "\n\n" + appendices
+# typographic subscripts (md2docx renders ~x~ as a Word subscript); the code-font API name keeps its underscore
+for a, c in [("t_{b−1}", "t~b−1~"), ("t_b − t_open", "t~b~ − t_open"), ("t_open", "t~open~"), ("t_block", "t~block~"), ("Q_q", "Q~q~"),
+             ("E[√τ]_post", "E[√τ]~post~"), ("E[√τ]_pre", "E[√τ]~pre~"), ("dev_pre", "dev~pre~"), ("p_pre", "p~pre~"), ("P_open", "P~open~"),
+             ("Post_t", "Post~t~"), ("t_prev", "t~prev~"), ("λ'", "λ′")]:
+    si = si.replace(a, c)
 open(os.path.join(HERE, "srep_SI.md"), "w", encoding="utf-8").write(si)
 left = [x for x in re.findall(r"Section \d|\bRD\b|Table D5\b|regression-discontinuity", si) if x != "Table D5"] + (["Table D5 cited"] if si.count("Table D5") > 1 else [])
 print("remaining old refs:", left, "| Table D6 count:", si.count("**Table D6."), "| words:", len(si.split()))

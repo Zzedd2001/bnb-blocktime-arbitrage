@@ -19,19 +19,34 @@ function pngSize(buf) {
 }
 
 // ---------- inline markdown -> TextRuns
+// Escapes: "\*" and "\_" stand for literal characters. Subscript "~x~" and superscript "^x^" (pandoc style).
+// Straight quotes become typographic quotes outside code spans.
+const ESC = { "*": "\uE000", "_": "\uE001", "~": "\uE002", "^": "\uE003" };
+const UNESC = s => s.replace(/\uE000/g, "*").replace(/\uE001/g, "_").replace(/\uE002/g, "~").replace(/\uE003/g, "^");
+function smartQuotes(s) {
+  return s
+    .replace(/(^|[\s(\[—–-])"/g, "$1\u201C")   // opening double quote
+    .replace(/"/g, "\u201D")                     // closing double quote
+    .replace(/(^|[\s(\[—–-])'(?=\S)/g, "$1\u2018")   // opening single quote
+    .replace(/'/g, "\u2019");                    // apostrophe / closing single quote
+}
 function inline(text, base = {}) {
+  text = text.replace(/\\([*_~^])/g, (m, c) => ESC[c]);
   const runs = [];
-  const re = /(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g;
+  const re = /(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`|~[^~\s]+~|\^[^^\s]+\^)/g;
   let last = 0, m;
+  const plain = (s) => new TextRun({ text: UNESC(smartQuotes(s)), ...base });
   while ((m = re.exec(text)) !== null) {
-    if (m.index > last) runs.push(new TextRun({ text: text.slice(last, m.index), ...base }));
+    if (m.index > last) runs.push(plain(text.slice(last, m.index)));
     const tok = m[0];
-    if (tok.startsWith("**")) runs.push(new TextRun({ text: tok.slice(2, -2), bold: true, ...base }));
-    else if (tok.startsWith("`")) runs.push(new TextRun({ text: tok.slice(1, -1), font: "Consolas", ...base }));
-    else runs.push(new TextRun({ text: tok.slice(1, -1), italics: true, ...base }));
+    if (tok.startsWith("**")) runs.push(new TextRun({ text: UNESC(smartQuotes(tok.slice(2, -2))), bold: true, ...base }));
+    else if (tok.startsWith("`")) runs.push(new TextRun({ text: UNESC(tok.slice(1, -1)), font: "Consolas", ...base }));
+    else if (tok.startsWith("~")) runs.push(new TextRun({ text: UNESC(tok.slice(1, -1)), subScript: true, ...base }));
+    else if (tok.startsWith("^")) runs.push(new TextRun({ text: UNESC(tok.slice(1, -1)), superScript: true, ...base }));
+    else runs.push(new TextRun({ text: UNESC(smartQuotes(tok.slice(1, -1))), italics: true, ...base }));
     last = m.index + tok.length;
   }
-  if (last < text.length) runs.push(new TextRun({ text: text.slice(last), ...base }));
+  if (last < text.length) runs.push(plain(text.slice(last)));
   return runs;
 }
 
@@ -135,7 +150,7 @@ while (i < lines.length) {
     children.push(new Paragraph({ children: inline(text, { size: 19 }), spacing: { before: 120, after: 80 }, alignment: AlignmentType.JUSTIFIED, keepNext: true, keepLines: true }));
   } else if (inRefs) {
     children.push(new Paragraph({ children: inline(text, { size: 19 }), indent: { left: 400, hanging: 400 }, spacing: { after: 80, line: 240 } }));
-  } else if (/^log y_pt/.test(text)) {
+  } else if (/^log y[_~]pt/.test(text)) {
     children.push(new Paragraph({ children: inline(text, { italics: true }), alignment: AlignmentType.CENTER, spacing: { before: 80, after: 160 } }));
   } else {
     children.push(para(text));
