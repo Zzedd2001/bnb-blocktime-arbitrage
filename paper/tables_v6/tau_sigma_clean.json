@@ -2,535 +2,892 @@
  "cex|log_tau|no further controls|Lorentz pre": {
   "b": -0.3735219846694816,
   "se": 0.015639622819144598,
-  "p": 4.5943997730411655e-126,
+  "p": 4.470799396027516e-21,
   "n": 61524,
   "clusters": 31
  },
  "cex|log_tau|no further controls|Lorentz post": {
   "b": -0.3684359171444058,
   "se": 0.04310621549432128,
-  "p": 1.2614927390479917e-17,
+  "p": 1.548461223364543e-09,
   "n": 52729,
   "clusters": 31
  },
  "cex|log_tau|no further controls|Maxwell pre": {
   "b": -0.22815031021726911,
   "se": 0.017769229015094055,
-  "p": 9.83444787260009e-38,
+  "p": 1.0109673712864276e-13,
   "n": 49370,
   "clusters": 31
  },
  "cex|log_tau|no further controls|Maxwell post": {
   "b": -0.23059428025449122,
   "se": 0.02164947732126101,
-  "p": 1.720148958282292e-26,
+  "p": 1.031631120878686e-11,
   "n": 79353,
   "clusters": 31
  },
  "cex|log_tau|no further controls|Fermi pre": {
   "b": -0.2402781807213624,
   "se": 0.015873769304414493,
-  "p": 9.260191879465945e-52,
+  "p": 1.3770526353128278e-15,
   "n": 61512,
   "clusters": 31
  },
  "cex|log_tau|no further controls|Fermi post": {
   "b": -0.15655018540733312,
   "se": 0.015906719629167832,
-  "p": 7.439459324521855e-23,
+  "p": 6.624754341446297e-11,
   "n": 129744,
   "clusters": 31
  },
  "cex|log_tau|with log volume and log liquidity|Lorentz pre": {
   "b": -0.19023160317656376,
   "se": 0.038138170191246705,
-  "p": 6.102073003312551e-07,
+  "p": 2.410235308880213e-05,
   "n": 61524,
   "clusters": 31
  },
  "cex|log_tau|with log volume and log liquidity|Lorentz post": {
   "b": -0.06870624880984387,
   "se": 0.053342126429001886,
-  "p": 0.1977355875391047,
+  "p": 0.2075823485753416,
   "n": 52729,
   "clusters": 31
  },
  "cex|log_tau|with log volume and log liquidity|Maxwell pre": {
   "b": -0.09090036119559426,
   "se": 0.03487328752442374,
-  "p": 0.009144879785234837,
+  "p": 0.014105416460501148,
   "n": 49370,
   "clusters": 31
  },
  "cex|log_tau|with log volume and log liquidity|Maxwell post": {
   "b": -0.09450007651796798,
   "se": 0.05180315749315055,
-  "p": 0.06811963435177605,
+  "p": 0.07809501971556951,
   "n": 79353,
   "clusters": 31
  },
  "cex|log_tau|with log volume and log liquidity|Fermi pre": {
   "b": -0.13469224518532166,
   "se": 0.028885222480824944,
-  "p": 3.1160900898131458e-06,
+  "p": 6.023478910097026e-05,
   "n": 61512,
   "clusters": 31
  },
  "cex|log_tau|with log volume and log liquidity|Fermi post": {
   "b": -0.03849225193752233,
   "se": 0.039502309690787676,
-  "p": 0.32984287500753684,
+  "p": 0.3376350679934992,
   "n": 129744,
   "clusters": 31
  },
  "cex|first_block|no further controls|Lorentz pre": {
   "b": 0.1476035222889519,
   "se": 0.008270962929332505,
-  "p": 3.1055008737213148e-71,
+  "p": 1.5929493423071197e-17,
   "n": 61524,
   "clusters": 31
  },
  "cex|first_block|no further controls|Lorentz post": {
   "b": 0.1212573835756617,
   "se": 0.01582428729918917,
-  "p": 1.8200898095085122e-14,
+  "p": 1.5113428750978804e-08,
   "n": 52729,
   "clusters": 31
  },
  "cex|first_block|no further controls|Maxwell pre": {
   "b": 0.09099972184823656,
   "se": 0.008496856087639358,
-  "p": 9.154863124581751e-27,
+  "p": 9.047270828450753e-12,
   "n": 49370,
   "clusters": 31
  },
  "cex|first_block|no further controls|Maxwell post": {
   "b": 0.07939733911547708,
   "se": 0.011020589315758215,
-  "p": 5.827649063537505e-13,
+  "p": 5.110966560994453e-08,
   "n": 79353,
   "clusters": 31
  },
  "cex|first_block|no further controls|Fermi pre": {
   "b": 0.08562366968349906,
   "se": 0.006323365234948424,
-  "p": 8.975802691182465e-42,
+  "p": 2.5749492563320597e-14,
   "n": 61512,
   "clusters": 31
  },
  "cex|first_block|no further controls|Fermi post": {
   "b": 0.024736042502964583,
   "se": 0.010066328190403961,
-  "p": 0.013998363253719996,
+  "p": 0.019997977937559162,
   "n": 129744,
   "clusters": 31
  },
  "cex|first_block|with log volume and log liquidity|Lorentz pre": {
   "b": 0.03955547372076276,
   "se": 0.02190808802874715,
-  "p": 0.07099347272521685,
+  "p": 0.08103828020356979,
   "n": 61524,
   "clusters": 31
  },
  "cex|first_block|with log volume and log liquidity|Lorentz post": {
   "b": 0.025064208495029806,
   "se": 0.020909754309855966,
-  "p": 0.23065045929118344,
+  "p": 0.24003384084052995,
   "n": 52729,
   "clusters": 31
  },
  "cex|first_block|with log volume and log liquidity|Maxwell pre": {
   "b": 0.045362934531693905,
   "se": 0.01763314292356899,
-  "p": 0.010093926237473325,
+  "p": 0.015285146293494553,
   "n": 49370,
   "clusters": 31
  },
  "cex|first_block|with log volume and log liquidity|Maxwell post": {
   "b": 0.027802642652223354,
   "se": 0.01985787255659951,
-  "p": 0.16148887422969915,
+  "p": 0.17174629094906352,
   "n": 79353,
   "clusters": 31
  },
  "cex|first_block|with log volume and log liquidity|Fermi pre": {
   "b": 0.07188987511864507,
   "se": 0.013838954294000958,
-  "p": 2.0499773173133965e-07,
+  "p": 1.3440646588550974e-05,
   "n": 61512,
   "clusters": 31
  },
  "cex|first_block|with log volume and log liquidity|Fermi post": {
   "b": 0.031074597457725704,
   "se": 0.014969484568183934,
-  "p": 0.037906634036529635,
+  "p": 0.0465743127496722,
   "n": 129744,
   "clusters": 31
  },
  "sharp|log_tau|no further controls|Lorentz pre": {
   "b": -0.24010694228167562,
   "se": 0.07909513164527736,
-  "p": 0.002399996295806791,
+  "p": 0.00502984302582305,
   "n": 484,
   "clusters": 30
  },
  "sharp|log_tau|no further controls|Lorentz post": {
   "b": -0.1333546681817489,
   "se": 0.0675698036286208,
-  "p": 0.04842909003159423,
+  "p": 0.05770195634789571,
   "n": 525,
   "clusters": 31
  },
  "sharp|log_tau|no further controls|Maxwell pre": {
   "b": -0.17618213927324733,
   "se": 0.06518289352199383,
-  "p": 0.006873965508703249,
+  "p": 0.011206233548333602,
   "n": 398,
   "clusters": 31
  },
  "sharp|log_tau|no further controls|Maxwell post": {
   "b": 0.0020005362086013417,
   "se": 0.04340348222115699,
-  "p": 0.9632372362120623,
+  "p": 0.9635426933233392,
   "n": 736,
   "clusters": 31
  },
  "sharp|log_tau|no further controls|Fermi pre": {
   "b": -0.06221640959129865,
   "se": 0.04507068474516266,
-  "p": 0.16745780983139846,
+  "p": 0.17800628519188005,
   "n": 345,
   "clusters": 30
  },
  "sharp|log_tau|no further controls|Fermi post": {
   "b": -0.19321753130383165,
   "se": 0.05819830828260719,
-  "p": 0.0009002216978370815,
+  "p": 0.002372388761752118,
   "n": 1281,
   "clusters": 31
  },
  "sharp|log_tau|with log volume and log liquidity|Lorentz pre": {
   "b": 0.12821702882125863,
   "se": 0.1520615953045002,
-  "p": 0.39912140963843423,
+  "p": 0.4060226747486873,
   "n": 484,
   "clusters": 30
  },
  "sharp|log_tau|with log volume and log liquidity|Lorentz post": {
   "b": 0.2923944029381676,
   "se": 0.1494740854930384,
-  "p": 0.0504469582157307,
+  "p": 0.05981401303630778,
   "n": 525,
   "clusters": 31
  },
  "sharp|log_tau|with log volume and log liquidity|Maxwell pre": {
   "b": -0.6607991316146538,
   "se": 0.19334858764403431,
-  "p": 0.0006316267963847824,
+  "p": 0.001836208706272699,
   "n": 398,
   "clusters": 31
  },
  "sharp|log_tau|with log volume and log liquidity|Maxwell post": {
   "b": -0.03190808084454755,
   "se": 0.1209387345504153,
-  "p": 0.7919057268302808,
+  "p": 0.7937096672064614,
   "n": 736,
   "clusters": 31
  },
  "sharp|log_tau|with log volume and log liquidity|Fermi pre": {
   "b": 0.026578106496250784,
   "se": 0.1606893290454982,
-  "p": 0.8686287056512169,
+  "p": 0.8697763545386035,
   "n": 345,
   "clusters": 30
  },
  "sharp|log_tau|with log volume and log liquidity|Fermi post": {
   "b": 0.22692811029554963,
   "se": 0.23527306776887305,
-  "p": 0.33477989557895693,
+  "p": 0.3424910794339233,
   "n": 1281,
   "clusters": 31
  },
  "sharp|first_block|no further controls|Lorentz pre": {
   "b": 0.06222132162971647,
   "se": 0.02477376614162145,
-  "p": 0.012019168170588648,
+  "p": 0.017840967779176337,
   "n": 484,
   "clusters": 30
  },
  "sharp|first_block|no further controls|Lorentz post": {
   "b": -0.008660486839458338,
   "se": 0.025662189452861566,
-  "p": 0.7357547591655351,
+  "p": 0.7381047533091029,
   "n": 525,
   "clusters": 31
  },
  "sharp|first_block|no further controls|Maxwell pre": {
   "b": 0.025783581433298182,
   "se": 0.03226041522818842,
-  "p": 0.42415544631861013,
+  "p": 0.4304382125206307,
   "n": 398,
   "clusters": 31
  },
  "sharp|first_block|no further controls|Maxwell post": {
   "b": 0.026648118819912678,
   "se": 0.04141331138989875,
-  "p": 0.5199208142744811,
+  "p": 0.5248095607746134,
   "n": 736,
   "clusters": 31
  },
  "sharp|first_block|no further controls|Fermi pre": {
   "b": 0.05981007057020603,
   "se": 0.04457093197430301,
-  "p": 0.1796259702181543,
+  "p": 0.19003901931475795,
   "n": 345,
   "clusters": 30
  },
  "sharp|first_block|no further controls|Fermi post": {
   "b": 0.033859644398350895,
   "se": 0.0356915732984527,
-  "p": 0.3427867724137649,
+  "p": 0.3503668074695432,
   "n": 1281,
   "clusters": 31
  },
  "sharp|first_block|with log volume and log liquidity|Lorentz pre": {
   "b": -0.12799674932031854,
   "se": 0.07426502795506695,
-  "p": 0.08479577640046704,
+  "p": 0.0954435459169217,
   "n": 484,
   "clusters": 30
  },
  "sharp|first_block|with log volume and log liquidity|Lorentz post": {
   "b": -0.06438121412768155,
   "se": 0.07165413708807901,
-  "p": 0.36891925378539636,
+  "p": 0.37607438934035115,
   "n": 525,
   "clusters": 31
  },
  "sharp|first_block|with log volume and log liquidity|Maxwell pre": {
   "b": 0.08032736861151328,
   "se": 0.09112363895397382,
-  "p": 0.37803608713121684,
+  "p": 0.3850445108326896,
   "n": 398,
   "clusters": 31
  },
  "sharp|first_block|with log volume and log liquidity|Maxwell post": {
   "b": -0.01586577529821781,
   "se": 0.10287129675371393,
-  "p": 0.877428885257322,
+  "p": 0.8784617722853111,
   "n": 736,
   "clusters": 31
  },
  "sharp|first_block|with log volume and log liquidity|Fermi pre": {
   "b": 0.13133962355291368,
   "se": 0.1803169590135952,
-  "p": 0.4663797912929768,
+  "p": 0.47222093641047025,
   "n": 345,
   "clusters": 30
  },
  "sharp|first_block|with log volume and log liquidity|Fermi post": {
   "b": -0.06181726742959012,
   "se": 0.07694781995369021,
-  "p": 0.42176318237517285,
+  "p": 0.42808282021711624,
   "n": 1281,
   "clusters": 31
  },
  "onchain|log_tau|no further controls|Lorentz pre": {
   "b": -0.24249773643874062,
   "se": 0.029440923999874215,
-  "p": 1.769413751140939e-16,
+  "p": 3.4060244291783647e-09,
   "n": 908,
   "clusters": 31
  },
  "onchain|log_tau|no further controls|Lorentz post": {
   "b": -0.11834241003792481,
   "se": 0.02469701448209288,
-  "p": 1.6531645626243652e-06,
+  "p": 4.1919990253706125e-05,
   "n": 1530,
   "clusters": 31
  },
  "onchain|log_tau|no further controls|Maxwell pre": {
   "b": -0.08093520561697723,
   "se": 0.02879905143561089,
-  "p": 0.0049488764701111675,
+  "p": 0.008631825645914512,
   "n": 945,
   "clusters": 31
  },
  "onchain|log_tau|no further controls|Maxwell post": {
   "b": -0.1646029073163765,
   "se": 0.04960261332778992,
-  "p": 0.0009052430868157536,
+  "p": 0.002382026237196973,
   "n": 1311,
   "clusters": 31
  },
  "onchain|log_tau|no further controls|Fermi pre": {
   "b": -0.17142622705784055,
   "se": 0.051733150878369646,
-  "p": 0.0009208242319088931,
+  "p": 0.002411854353692794,
   "n": 465,
   "clusters": 31
  },
  "onchain|log_tau|no further controls|Fermi post": {
   "b": -0.10197264695057243,
   "se": 0.02340984538568391,
-  "p": 1.3247730029168927e-05,
+  "p": 0.00014240448942648355,
   "n": 1723,
   "clusters": 31
  },
  "onchain|log_tau|with log volume and log liquidity|Lorentz pre": {
   "b": -0.14288411487819663,
   "se": 0.11625313927208623,
-  "p": 0.21904275957908192,
+  "p": 0.22859646045800538,
   "n": 908,
   "clusters": 31
  },
  "onchain|log_tau|with log volume and log liquidity|Lorentz post": {
   "b": 0.11948643308837233,
   "se": 0.05055922718116223,
-  "p": 0.018113182619483855,
+  "p": 0.024789693234405257,
   "n": 1530,
   "clusters": 31
  },
  "onchain|log_tau|with log volume and log liquidity|Maxwell pre": {
   "b": 0.06032818399089625,
   "se": 0.06718623609423777,
-  "p": 0.36922567076037405,
+  "p": 0.376375860728657,
   "n": 945,
   "clusters": 31
  },
  "onchain|log_tau|with log volume and log liquidity|Maxwell post": {
   "b": 0.031700285050028046,
   "se": 0.048032138765785846,
-  "p": 0.5092662082860153,
+  "p": 0.5143017305348141,
   "n": 1311,
   "clusters": 31
  },
  "onchain|log_tau|with log volume and log liquidity|Fermi pre": {
   "b": 0.20804477768996485,
   "se": 0.10771741610095273,
-  "p": 0.053434339091790746,
+  "p": 0.0629300968313332,
   "n": 465,
   "clusters": 31
  },
  "onchain|log_tau|with log volume and log liquidity|Fermi post": {
   "b": 0.0004995198556892178,
   "se": 0.0449649937182239,
-  "p": 0.9911364163530133,
+  "p": 0.9912099651193296,
   "n": 1723,
   "clusters": 31
  },
  "onchain|first_block|no further controls|Lorentz pre": {
   "b": 0.17503998784806712,
   "se": 0.0206862552711786,
-  "p": 2.6360584443645925e-17,
+  "p": 1.921612682064819e-09,
   "n": 908,
   "clusters": 31
  },
  "onchain|first_block|no further controls|Lorentz post": {
   "b": 0.07371230096527119,
   "se": 0.01916074591039096,
-  "p": 0.00011954976509922451,
+  "p": 0.00058032567902311,
   "n": 1530,
   "clusters": 31
  },
  "onchain|first_block|no further controls|Maxwell pre": {
   "b": 0.0501638343617664,
   "se": 0.02303254638821339,
-  "p": 0.029409436307215743,
+  "p": 0.03740310675400899,
   "n": 945,
   "clusters": 31
  },
  "onchain|first_block|no further controls|Maxwell post": {
   "b": 0.07907368683849875,
   "se": 0.02610268497135088,
-  "p": 0.0024509555098892475,
+  "p": 0.005005895548329743,
   "n": 1311,
   "clusters": 31
  },
  "onchain|first_block|no further controls|Fermi pre": {
   "b": 0.02372209478890391,
   "se": 0.03152046990911986,
-  "p": 0.4516943388709892,
+  "p": 0.45755945620268035,
   "n": 465,
   "clusters": 31
  },
  "onchain|first_block|no further controls|Fermi post": {
   "b": 0.03674012795515581,
   "se": 0.016540895287134507,
-  "p": 0.026339500179782267,
+  "p": 0.03403331064094996,
   "n": 1723,
   "clusters": 31
  },
  "onchain|first_block|with log volume and log liquidity|Lorentz pre": {
   "b": 0.12414610567408504,
   "se": 0.07492772316981301,
-  "p": 0.09754411726745416,
+  "p": 0.10796756843021667,
   "n": 908,
   "clusters": 31
  },
  "onchain|first_block|with log volume and log liquidity|Lorentz post": {
   "b": -0.1194089555437679,
   "se": 0.03965668098053756,
-  "p": 0.0026033070859247044,
+  "p": 0.005241869498994565,
   "n": 1530,
   "clusters": 31
  },
  "onchain|first_block|with log volume and log liquidity|Maxwell pre": {
   "b": -0.027031770468044537,
   "se": 0.06262718109696647,
-  "p": 0.6660103474326745,
+  "p": 0.6690965822536332,
   "n": 945,
   "clusters": 31
  },
  "onchain|first_block|with log volume and log liquidity|Maxwell post": {
   "b": -0.02280738369254803,
   "se": 0.029335238730620522,
-  "p": 0.436879202559718,
+  "p": 0.4429674193815414,
   "n": 1311,
   "clusters": 31
  },
  "onchain|first_block|with log volume and log liquidity|Fermi pre": {
   "b": -0.16029012525719122,
   "se": 0.0647941691017052,
-  "p": 0.013367117447168113,
+  "p": 0.019248863131787163,
   "n": 465,
   "clusters": 31
  },
  "onchain|first_block|with log volume and log liquidity|Fermi post": {
   "b": -0.016293255125676417,
   "se": 0.036266070128224144,
-  "p": 0.6532369401319159,
+  "p": 0.6564659747018793,
   "n": 1723,
   "clusters": 31
+ },
+ "pooled": {
+  "cex": {
+   "b": -0.1107206793505075,
+   "se": 0.015668586145790243,
+   "Q": 9.419875604184487,
+   "Q_p": 0.09344390903399283,
+   "k": 6,
+   "t0": -7.066411628994067,
+   "t_ref": NaN,
+   "p0": 1.5899134151896262e-12,
+   "p_ref": NaN
+  },
+  "sharp": {
+   "b": 0.016268830786927486,
+   "se": 0.06456058428656399,
+   "Q": 17.181676843656454,
+   "Q_p": 0.0041678234479508875,
+   "k": 6,
+   "t0": 0.251993239632332,
+   "t_ref": 1.9114927694674915,
+   "p0": 0.8010462892192542,
+   "p_ref": 0.05594128510936252
+  },
+  "onchain": {
+   "b": 0.047886679099567925,
+   "se": 0.02424675605495732,
+   "Q": 8.167533711608405,
+   "Q_p": 0.1472410126095759,
+   "k": 6,
+   "t0": 1.9749726103990455,
+   "t_ref": 5.494068099337575,
+   "p0": 0.04827125634257107,
+   "p_ref": 3.927789153613846e-08
+  }
+ },
+ "J0-0.05|log_tau|with log volume and log liquidity|Lorentz pre": {
+  "b": -0.13577322245782542,
+  "se": 0.06584500236435688,
+  "p": 0.047960874382032496,
+  "n": 13109,
+  "clusters": 31
+ },
+ "J0-0.05|log_tau|with log volume and log liquidity|Lorentz post": {
+  "b": -0.051302233846901815,
+  "se": 0.07287141809834041,
+  "p": 0.48685540113463593,
+  "n": 12612,
+  "clusters": 31
+ },
+ "J0-0.05|log_tau|with log volume and log liquidity|Maxwell pre": {
+  "b": -0.1100271979708866,
+  "se": 0.045080109658027424,
+  "p": 0.020777132936211015,
+  "n": 13293,
+  "clusters": 31
+ },
+ "J0-0.05|log_tau|with log volume and log liquidity|Maxwell post": {
+  "b": -0.13489330429071392,
+  "se": 0.06538560306480043,
+  "p": 0.047856486585385355,
+  "n": 20213,
+  "clusters": 31
+ },
+ "J0-0.05|log_tau|with log volume and log liquidity|Fermi pre": {
+  "b": -0.2104923587250875,
+  "se": 0.05367224344756842,
+  "p": 0.0004731683757559486,
+  "n": 14698,
+  "clusters": 31
+ },
+ "J0-0.05|log_tau|with log volume and log liquidity|Fermi post": {
+  "b": -0.1350633082960185,
+  "se": 0.04108091013504795,
+  "p": 0.002580373246362824,
+  "n": 28458,
+  "clusters": 31
+ },
+ "J0.05-0.15|log_tau|with log volume and log liquidity|Lorentz pre": {
+  "b": -0.20897068014060471,
+  "se": 0.060114908588507814,
+  "p": 0.001573086076031801,
+  "n": 15745,
+  "clusters": 31
+ },
+ "J0.05-0.15|log_tau|with log volume and log liquidity|Lorentz post": {
+  "b": -0.037383924902407856,
+  "se": 0.0613879173382841,
+  "p": 0.547122914068247,
+  "n": 12409,
+  "clusters": 31
+ },
+ "J0.05-0.15|log_tau|with log volume and log liquidity|Maxwell pre": {
+  "b": -0.11075725291169114,
+  "se": 0.06112831039732036,
+  "p": 0.08002620406845258,
+  "n": 12304,
+  "clusters": 31
+ },
+ "J0.05-0.15|log_tau|with log volume and log liquidity|Maxwell post": {
+  "b": -0.10673459017459722,
+  "se": 0.056255525430998134,
+  "p": 0.06744852506099139,
+  "n": 22375,
+  "clusters": 31
+ },
+ "J0.05-0.15|log_tau|with log volume and log liquidity|Fermi pre": {
+  "b": -0.1716274889683149,
+  "se": 0.04793898287660665,
+  "p": 0.0011929505849641103,
+  "n": 17808,
+  "clusters": 31
+ },
+ "J0.05-0.15|log_tau|with log volume and log liquidity|Fermi post": {
+  "b": -0.08509287030958468,
+  "se": 0.044337603063721816,
+  "p": 0.06451544561256085,
+  "n": 34688,
+  "clusters": 31
+ },
+ "J0.15-0.4|log_tau|with log volume and log liquidity|Lorentz pre": {
+  "b": -0.25078379935923434,
+  "se": 0.05806235845141399,
+  "p": 0.00015777526553240187,
+  "n": 17793,
+  "clusters": 31
+ },
+ "J0.15-0.4|log_tau|with log volume and log liquidity|Lorentz post": {
+  "b": -0.033853063920650565,
+  "se": 0.07263813920836273,
+  "p": 0.6445453980205497,
+  "n": 14395,
+  "clusters": 31
+ },
+ "J0.15-0.4|log_tau|with log volume and log liquidity|Maxwell pre": {
+  "b": -0.04088348105784363,
+  "se": 0.04687686697080838,
+  "p": 0.3900555150117698,
+  "n": 13259,
+  "clusters": 31
+ },
+ "J0.15-0.4|log_tau|with log volume and log liquidity|Maxwell post": {
+  "b": -0.14094349940749484,
+  "se": 0.08088622727376055,
+  "p": 0.09166689941691065,
+  "n": 20617,
+  "clusters": 31
+ },
+ "J0.15-0.4|log_tau|with log volume and log liquidity|Fermi pre": {
+  "b": -0.1004498315293482,
+  "se": 0.06187724070046894,
+  "p": 0.11497266118041462,
+  "n": 17184,
+  "clusters": 31
+ },
+ "J0.15-0.4|log_tau|with log volume and log liquidity|Fermi post": {
+  "b": -0.07656868468131832,
+  "se": 0.05326783263981653,
+  "p": 0.16094570159392477,
+  "n": 36479,
+  "clusters": 31
+ },
+ "J0.4-1|log_tau|with log volume and log liquidity|Lorentz pre": {
+  "b": -0.2387780814328537,
+  "se": 0.06262355209501218,
+  "p": 0.0006368189195524038,
+  "n": 11281,
+  "clusters": 31
+ },
+ "J0.4-1|log_tau|with log volume and log liquidity|Lorentz post": {
+  "b": -0.13343010053710264,
+  "se": 0.07002828917265441,
+  "p": 0.06635562370182532,
+  "n": 9852,
+  "clusters": 31
+ },
+ "J0.4-1|log_tau|with log volume and log liquidity|Maxwell pre": {
+  "b": -0.0977383144754684,
+  "se": 0.05785250499320637,
+  "p": 0.10150352130515254,
+  "n": 7989,
+  "clusters": 31
+ },
+ "J0.4-1|log_tau|with log volume and log liquidity|Maxwell post": {
+  "b": 0.01670031505549585,
+  "se": 0.03787689637182094,
+  "p": 0.6624390848085344,
+  "n": 11741,
+  "clusters": 31
+ },
+ "J0.4-1|log_tau|with log volume and log liquidity|Fermi pre": {
+  "b": -0.028876753331137525,
+  "se": 0.04674174190038686,
+  "p": 0.5413731272432911,
+  "n": 9342,
+  "clusters": 31
+ },
+ "J0.4-1|log_tau|with log volume and log liquidity|Fermi post": {
+  "b": 0.08164361371630544,
+  "se": 0.06923852479938902,
+  "p": 0.2476001101249049,
+  "n": 22191,
+  "clusters": 31
+ },
+ "J1-2.5|log_tau|with log volume and log liquidity|Lorentz pre": {
+  "b": 0.12204877303320036,
+  "se": 0.0887634212921621,
+  "p": 0.179317524664556,
+  "n": 3112,
+  "clusters": 31
+ },
+ "J1-2.5|log_tau|with log volume and log liquidity|Lorentz post": {
+  "b": -0.21484763075853464,
+  "se": 0.11258906443055791,
+  "p": 0.06596979823901808,
+  "n": 2936,
+  "clusters": 31
+ },
+ "J1-2.5|log_tau|with log volume and log liquidity|Maxwell pre": {
+  "b": -0.018600494204468455,
+  "se": 0.08519815125381175,
+  "p": 0.8286578268816697,
+  "n": 2127,
+  "clusters": 31
+ },
+ "J1-2.5|log_tau|with log volume and log liquidity|Maxwell post": {
+  "b": 0.09501032667185011,
+  "se": 0.06635351573097,
+  "p": 0.16251507254098738,
+  "n": 3671,
+  "clusters": 31
+ },
+ "J1-2.5|log_tau|with log volume and log liquidity|Fermi pre": {
+  "b": 0.09181630799383791,
+  "se": 0.08564068419919224,
+  "p": 0.292219397065836,
+  "n": 2135,
+  "clusters": 31
+ },
+ "J1-2.5|log_tau|with log volume and log liquidity|Fermi post": {
+  "b": 0.14512868257299058,
+  "se": 0.13820323604549792,
+  "p": 0.30205336755012685,
+  "n": 6647,
+  "clusters": 31
+ },
+ "J2.5-inf|log_tau|with log volume and log liquidity|Lorentz pre": {
+  "b": 0.12821702882125863,
+  "se": 0.1520615953045002,
+  "p": 0.4060226747486873,
+  "n": 484,
+  "clusters": 30
+ },
+ "J2.5-inf|log_tau|with log volume and log liquidity|Lorentz post": {
+  "b": 0.2923944029381676,
+  "se": 0.1494740854930384,
+  "p": 0.05981401303630778,
+  "n": 525,
+  "clusters": 31
+ },
+ "J2.5-inf|log_tau|with log volume and log liquidity|Maxwell pre": {
+  "b": -0.6607991316146538,
+  "se": 0.19334858764403431,
+  "p": 0.001836208706272699,
+  "n": 398,
+  "clusters": 31
+ },
+ "J2.5-inf|log_tau|with log volume and log liquidity|Maxwell post": {
+  "b": -0.03190808084454755,
+  "se": 0.1209387345504153,
+  "p": 0.7937096672064614,
+  "n": 736,
+  "clusters": 31
+ },
+ "J2.5-inf|log_tau|with log volume and log liquidity|Fermi pre": {
+  "b": 0.026578106496250784,
+  "se": 0.1606893290454982,
+  "p": 0.8697763545386035,
+  "n": 345,
+  "clusters": 30
+ },
+ "J2.5-inf|log_tau|with log volume and log liquidity|Fermi post": {
+  "b": 0.22692811029554963,
+  "se": 0.23527306776887305,
+  "p": 0.3424910794339233,
+  "n": 1281,
+  "clusters": 31
+ },
+ "j_bins": {
+  "[0, 0.05)": {
+   "b": -0.13420707074185986,
+   "se": 0.02190212928179531,
+   "Q": 3.6032828336562854,
+   "Q_p": 0.607820456700748,
+   "k": 6,
+   "n": 102383,
+   "p": 8.922519194607032e-10
+  },
+  "[0.05, 0.15)": {
+   "b": -0.12035726379424924,
+   "se": 0.02198196448516021,
+   "Q": 5.859469531009165,
+   "Q_p": 0.3201342393213054,
+   "k": 6,
+   "n": 115329,
+   "p": 4.368368166146821e-08
+  },
+  "[0.15, 0.4)": {
+   "b": -0.10199401134698416,
+   "se": 0.02419896269510514,
+   "Q": 9.606655233877861,
+   "Q_p": 0.08717925756588289,
+   "k": 6,
+   "n": 119727,
+   "p": 2.4998940958170553e-05
+  },
+  "[0.4, 1)": {
+   "b": -0.04801616158655828,
+   "se": 0.021713362974786776,
+   "Q": 18.09932058670121,
+   "Q_p": 0.002824469721752129,
+   "k": 6,
+   "n": 72396,
+   "p": 0.027010601229886414
+  },
+  "[1, 2.5)": {
+   "b": 0.04961243652030954,
+   "se": 0.03628807388329796,
+   "Q": 8.012910098726428,
+   "Q_p": 0.15552556049582064,
+   "k": 6,
+   "n": 20628,
+   "p": 0.17156796283171083
+  },
+  "\u2265 2.5 (sharp openings)": {
+   "b": 0.016268830786927486,
+   "se": 0.06456058428656399,
+   "Q": 17.181676843656454,
+   "Q_p": 0.0041678234479508875,
+   "k": 6,
+   "n": 3769,
+   "p": 0.8010462892192542
+  }
+ },
+ "j_quantiles_bp": {
+  "0.25": 0.05417391376050674,
+  "0.5": 0.14936506132379612,
+  "0.75": 0.3593148359862285,
+  "0.9": 0.7237886659268213,
+  "0.95": 1.0633837285615206,
+  "0.99": 2.345525214361215
  },
  "n|Lorentz pre": {
   "cex": 61524,
   "sharp": 484,
-  "onchain": 908
+  "onchain": 908,
+  "clusters": 31
  },
  "n|Lorentz post": {
   "cex": 52729,
   "sharp": 525,
-  "onchain": 1530
+  "onchain": 1530,
+  "clusters": 31
  },
  "n|Maxwell pre": {
   "cex": 49370,
   "sharp": 398,
-  "onchain": 945
+  "onchain": 945,
+  "clusters": 31
  },
  "n|Maxwell post": {
   "cex": 79353,
   "sharp": 736,
-  "onchain": 1311
+  "onchain": 1311,
+  "clusters": 31
  },
  "n|Fermi pre": {
   "cex": 61512,
   "sharp": 345,
-  "onchain": 465
+  "onchain": 465,
+  "clusters": 31
  },
  "n|Fermi post": {
   "cex": 129744,
   "sharp": 1281,
-  "onchain": 1723
+  "onchain": 1723,
+  "clusters": 31
  }
 }

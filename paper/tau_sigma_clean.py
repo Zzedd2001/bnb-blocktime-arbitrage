@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """tau_sigma_clean.py — does the response time still fall with volatility on the subsamples whose opening time is
-unambiguous?  (Scientific Reports referee, optional point.)
+unambiguous?  (Scientific Reports referee, rounds 1 and 2.)
 
 Table 3 of the manuscript shows that, holding volume and liquidity fixed, the median response time τ and E[√τ] of
 CEX-triggered bot arbitrages fall with the hour's realised volatility σ.  The last-crossing convention that dates the
@@ -8,10 +8,18 @@ opening can bias τ downward when the reference price hovers at the band edge, a
 volatile hours.  Two subsamples are immune to the convention: (i) sharp openings, in which the crossing trade
 carried the reference price at least ½γ beyond the band edge (t_open unambiguous), and (ii) on-chain-triggered
 arbitrages, whose τ is a difference of two block timestamps and involves no reference price at all.  Both are thin
-(about 1% and 0.5–2% of bot arbitrages), so the estimation is at the arbitrage level rather than on the hourly panel:
+(about 1% and 1–3% of bot arbitrages), so the estimation is at the arbitrage level rather than on the hourly panel:
 log τ_i (and the first-block indicator) on log σ of the hour, with log volume, log active liquidity, hour-of-day and
 pool fixed effects, within each block-interval regime, standard errors clustered by day.  The same regression on all
 CEX-triggered arbitrages is reported for comparison.
+
+Round 2 additions: p-values from t(G−1) with G the number of day-clusters (statsmodels use_t=True); for each panel
+the inverse-variance-weighted mean of the six regime elasticities of log τ with controls, its standard error, the
+heterogeneity statistic Q (χ² on five degrees of freedom) and the t-statistic of the pooled estimate against the
+full-sample pooled value; and, as a direct test of the mechanism, the full-sample elasticity by size of the
+crossing jump J (the excess by which the crossing trade carried the reference price beyond the band edge): if the
+residual negative elasticity is what the opening convention produces on marginal crossings, it should be largest for
+the smallest J and vanish once the crossing is large enough to clear the arbitrageurs' own thresholds.
 
 Outputs: tables_v6/table_tau_sigma_clean.md, tables_v6/tau_sigma_clean.json
 """
@@ -21,6 +29,7 @@ import os
 import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
+from scipy import stats
 
 CORE = ["WBNB-USDT-500", "ETH-USDT-500", "BTCB-USDT-500"]
 DT = {"Lorentz": (3.0, 1.5), "Maxwell": (1.5, 0.75), "Fermi": (0.75, 0.45)}
@@ -55,6 +64,7 @@ D["log_tau"] = np.log(D["tau_ms"])
 D["first_block"] = (D["k_blocks"] == 1).astype(float)
 for c in ["sigma_ps", "volume", "liq_mean"]:
     D["log_" + c] = np.log(D[c])
+cex = D["trigger"] == "cex"
 
 SAMPLES = [("cex", "All CEX-triggered arbitrages", D["trigger"] == "cex"),
            ("sharp", "Sharp openings (crossing trade ≥ ½γ beyond the edge)", D["sharp"]),
@@ -71,19 +81,29 @@ def fp(p):
 
 
 def fit(d, y, extra):
+    """OLS with day-clustered standard errors; p-values from t(G−1), G = number of clusters"""
     try:
-        m = smf.ols(f"{y} ~ log_sigma_ps{extra} + C(hod) + C(pool)", data=d).fit(cov_type="cluster", cov_kwds={"groups": d["day"].astype(str)})
+        m = smf.ols(f"{y} ~ log_sigma_ps{extra} + C(hod) + C(pool)", data=d).fit(cov_type="cluster", cov_kwds={"groups": d["day"].astype(str)}, use_t=True)
         return {"b": float(m.params["log_sigma_ps"]), "se": float(m.bse["log_sigma_ps"]), "p": float(m.pvalues["log_sigma_ps"]), "n": int(m.nobs),
                 "clusters": int(d["day"].nunique())}
     except Exception as e:  # noqa: BLE001
         return {"b": np.nan, "se": np.nan, "p": np.nan, "n": int(len(d)), "clusters": 0, "err": str(e)}
 
 
+def pool_iv(ests):
+    """inverse-variance-weighted mean of regime estimates, its s.e., and the heterogeneity Q (χ², k−1 d.f.)"""
+    b = np.array([e["b"] for e in ests]); s = np.array([e["se"] for e in ests])
+    w = 1 / s ** 2
+    m = float((w * b).sum() / w.sum()); se = float(w.sum() ** -0.5)
+    q = float((w * (b - m) ** 2).sum())
+    return {"b": m, "se": se, "Q": q, "Q_p": float(stats.chi2.sf(q, len(b) - 1)), "k": int(len(b))}
+
+
 res = {}
 regs = [(f, r) for f in DT for r in ("pre", "post")]
 L = ["# Response time and volatility on the subsamples with an unambiguous opening time (arbitrage level)\n",
      "Coefficient on log σ (the hour's Binance realised volatility) in a regression of the arbitrage-level outcome on log σ, hour-of-day and pool fixed "
-     "effects within each block-interval regime, three core pools pooled, bot flow, ±30-day windows; standard errors clustered by day in parentheses, exact two-sided p-values; "
+     "effects within each block-interval regime, three core pools pooled, bot flow, ±30-day windows; standard errors clustered by day in parentheses, exact two-sided p-values from t(G−1); "
      "sample sizes in the last block. Rows with controls add the hour's log volume and log active liquidity.\n"]
 hdr = "| Sample / outcome | " + " | ".join(f"{f} {r} ({DT[f][0 if r == 'pre' else 1]} s)" for f, r in regs) + " |"
 sep = "|:--|" + ":--|" * len(regs)
@@ -98,14 +118,54 @@ for skey, slab, mask in SAMPLES:
                 res[f"{skey}|{okey}|{clab}|{f} {r}"] = x
                 cells.append(f"{x['b']:+.3f} ({x['se']:.3f}), p {fp(x['p'])}" if np.isfinite(x["b"]) else "—")
             L.append(f"| {olab}, {clab} | " + " | ".join(cells) + " |")
-# sample sizes and the share of sharp openings
+
+# ---- pooled elasticities of log τ with controls, per panel, and the test against the full-sample value (round 2)
+CL = "with log volume and log liquidity"
+pooled = {skey: pool_iv([res[f"{skey}|log_tau|{CL}|{f} {r}"] for f, r in regs]) for skey, _, _ in SAMPLES}
+ref = pooled["cex"]
+L.append("\n**Pooled elasticity of log τ to log σ with controls: inverse-variance-weighted mean of the six regime estimates**\n")
+L += ["| Sample | Pooled elasticity (s.e.) | t against zero | t against the full-sample value (difference / its s.e.) | Heterogeneity Q (5 d.f.), p |", "|:--|:--|:--|:--|:--|"]
+for skey, slab, _ in SAMPLES:
+    q = pooled[skey]
+    t0 = q["b"] / q["se"]
+    tref = (q["b"] - ref["b"]) / float(np.hypot(q["se"], ref["se"])) if skey != "cex" else float("nan")   # disjoint (or nearly disjoint) samples
+    q["t0"], q["t_ref"] = float(t0), float(tref)
+    q["p0"] = float(2 * stats.norm.sf(abs(t0))); q["p_ref"] = float(2 * stats.norm.sf(abs(tref))) if skey != "cex" else float("nan")
+    L.append(f"| {slab} | {q['b']:+.3f} ({q['se']:.3f}) | {t0:+.2f}, p {fp(q['p0'])} | " + ("—" if skey == "cex" else f"{tref:+.2f}, p {fp(q['p_ref'])}") + f" | {q['Q']:.1f}, p {fp(q['Q_p'])} |")
+res["pooled"] = pooled
+
+# ---- the mechanism test: full-sample elasticity by size of the crossing jump J (round 2, optional suggestion)
+# bins in basis points: roughly the quartiles of J up to 0.4 bp, then 0.4–1, 1–2.5, and the sharp openings above ½γ = 2.5 bp
+JBINS = [(0.0, 0.05), (0.05, 0.15), (0.15, 0.4), (0.4, 1.0), (1.0, 2.5), (2.5, np.inf)]
+L.append("\n**All CEX-triggered arbitrages by size of the crossing jump J (bp beyond the band edge): elasticity of log τ to log σ with controls**\n")
+L += ["| J (bp) | " + " | ".join(f"{f} {r}" for f, r in regs) + " | Pooled (s.e.), p | Q (5 d.f.), p | n |", "|:--|" + ":--|" * (len(regs) + 3)]
+jb = {}
+for lo, hi in JBINS:
+    lab = f"[{lo:g}, {hi:g})" if np.isfinite(hi) else f"≥ {lo:g} (sharp openings)"
+    ests, cells, ntot = [], [], 0
+    for f, r in regs:
+        d = D[cex & (D["jump_bps"] >= lo) & (D["jump_bps"] < hi) & (D["fork"] == f) & (D["regime"] == r)]
+        x = fit(d, "log_tau", CTRL[1][0])
+        res[f"J{lo:g}-{hi:g}|log_tau|{CL}|{f} {r}"] = x
+        ests.append(x); ntot += x["n"]
+        cells.append(f"{x['b']:+.3f} ({x['se']:.3f})")
+    q = pool_iv(ests); q["n"] = ntot
+    q["p"] = float(2 * stats.norm.sf(abs(q["b"] / q["se"])))
+    jb[lab] = q
+    L.append(f"| {lab} | " + " | ".join(cells) + f" | {q['b']:+.3f} ({q['se']:.3f}), p {fp(q['p'])} | {q['Q']:.1f}, p {fp(q['Q_p'])} | {ntot:,} |")
+res["j_bins"] = jb
+qs = D[cex]["jump_bps"].quantile([0.25, 0.5, 0.75, 0.9, 0.95, 0.99])
+res["j_quantiles_bp"] = {str(k): float(v) for k, v in qs.items()}
+L.append("\nQuartiles of J (bp): " + ", ".join(f"{v:.2f}" for v in qs.loc[[0.25, 0.5, 0.75]]) + f"; 90th, 95th and 99th percentiles: {qs[0.9]:.2f}, {qs[0.95]:.2f}, {qs[0.99]:.2f}.")
+
+# ---- sample sizes and the share of sharp openings
 L.append("\n**Sample sizes per regime (three core pools pooled)**\n")
-L += ["| Regime | CEX-triggered | sharp openings (share) | on-chain-triggered |", "|:--|--:|--:|--:|"]
+L += ["| Regime | CEX-triggered | sharp openings (share) | on-chain-triggered | day-clusters |", "|:--|--:|--:|--:|--:|"]
 for f, r in regs:
     d = D[(D["fork"] == f) & (D["regime"] == r)]
     nc, ns, no = int((d["trigger"] == "cex").sum()), int(d["sharp"].sum()), int((d["trigger"] == "onchain").sum())
-    L.append(f"| {f} {r} | {nc:,} | {ns:,} ({ns / max(nc, 1):.1%}) | {no:,} |")
-    res[f"n|{f} {r}"] = {"cex": nc, "sharp": ns, "onchain": no}
+    L.append(f"| {f} {r} | {nc:,} | {ns:,} ({ns / max(nc, 1):.1%}) | {no:,} | {d['day'].nunique()} |")
+    res[f"n|{f} {r}"] = {"cex": nc, "sharp": ns, "onchain": no, "clusters": int(d["day"].nunique())}
 open(os.path.join(OUT, "table_tau_sigma_clean.md"), "w", encoding="utf-8").write("\n".join(L) + "\n")
 json.dump(res, open(os.path.join(OUT, "tau_sigma_clean.json"), "w"), indent=1)
 print("\n".join(L))
