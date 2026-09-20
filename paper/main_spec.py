@@ -150,7 +150,15 @@ for f in FORKS:
     srow[f"{f}: β (s.e.) [share of law]"] = um(f"{x['pre_slope']:+.4f} ({x['pre_slope_se']:.4f})")
 srow["Elasticity L / M / F"] = srow["Pooled elasticity (s.e.)"] = srow["t vs 0.5"] = srow["Equal (p)"] = ""
 
-full = pd.concat([T, P, pd.DataFrame([srow])], ignore_index=True)
+# headline estimate net of its own placebo: a bound on the effect net of the ambient drift, not an estimate with a s.e.
+nrow = {"Outcome": "Strict overshoot net of placebo (bound)"}
+for f in FORKS:
+    x, z = res[("Overshoot at strict arbitrage (headline)", f)], plc[("Overshoot at strict arbitrage (headline)", f)]
+    nrow[f"{f}: β (s.e.) [share of law]"] = um(f"{x['b'] - z['b']:+.3f} [{(x['b'] - z['b']) / LAW[f]:.0%}]")
+    res[("Overshoot at strict arbitrage (headline)", f)]["net_of_placebo"] = float(x["b"] - z["b"])
+nrow["Elasticity L / M / F"] = nrow["Pooled elasticity (s.e.)"] = nrow["t vs 0.5"] = nrow["Equal (p)"] = ""
+
+full = pd.concat([T, P, pd.DataFrame([srow, nrow]), ], ignore_index=True)
 open(f"{OUT}/table_main.md", "w").write(full.to_markdown(index=False, disable_numparse=True))
 
 # components under the main specification

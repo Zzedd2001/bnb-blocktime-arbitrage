@@ -28,9 +28,9 @@ SRC = sys.argv[1] if len(sys.argv) > 1 else ROOT + "/paper/paper_df.md"
 OUT_DIR = sys.argv[2] if len(sys.argv) > 2 else ROOT + "/paper/sn"
 
 # title page (single-blind journal): fill in before submission
-AUTHOR = {"given": "[Given name]", "family": "[Family name]", "email": "[email address]",
-          "affil": r"\orgname{Independent researcher}, \orgaddress{\city{[City]}, \country{[Country]}}",
-          "orcid": ""}
+AUTHOR = {"given": "Zhengdong", "family": "Zhu", "email": "2250030525@student.must.edu.mo",
+          "affil": r"\orgdiv{School of Business}, \orgname{Macau University of Science and Technology}, \orgaddress{\city{Macau}, \country{China}}",
+          "orcid": "0009-0001-8953-0061"}
 SHORT_TITLE = "Faster Blocks Fall Short of the Square-Root Law"
 
 SRC_DIR = os.path.dirname(os.path.abspath(SRC))
@@ -756,6 +756,7 @@ def measure_widths():
 
 
 AVAIL = {"portrait": (TEXTWIDTH, TEXTHEIGHT), "rotate": (TEXTHEIGHT, TEXTWIDTH)}
+FORCE_PORTRAIT = {"3", "4", "5", "6", "7"}     # body tables are never rotated (referee, minor 5); they are scaled instead
 VARIANT_ORDER = [(0, "footnotesize"), (1, "footnotesize"), (2, "footnotesize"), (1, "scriptsize"), (2, "scriptsize"),
                  (3, "footnotesize"), (3, "scriptsize")]
 
@@ -766,7 +767,7 @@ def choose_layout(ident, npanels, title="", notes=""):
     def size(pi, split, font):
         return MEASURED.get((ident, pi, split, font), (1e9, 1e9))
     best = None
-    for orient in ("portrait", "rotate"):
+    for orient in (("portrait",) if ident in FORCE_PORTRAIT else ("portrait", "rotate")):
         aw = AVAIL[orient][0]
         cpl = 95.0 if orient == "portrait" else 145.0          # caption characters per line
         capnotes = 12.0 * math.ceil(len(title) / cpl) + 9.5 * math.ceil(len(notes) / (cpl * 1.25)) + 30.0
@@ -796,7 +797,7 @@ def choose_layout(ident, npanels, title="", notes=""):
         if best is None or cand[0] > best[0] + 1e-6 or (abs(cand[0] - best[0]) <= 1e-6 and cand[1]):
             best = cand
     scale, _, chosen, orient = best
-    if scale < 0.75:
+    if scale < 0.75 or ident in FORCE_PORTRAIT and scale < 1.0:
         print("NOTE: table %s scaled to %.2f (%s)" % (ident, scale, orient))
     return chosen, orient == "rotate", scale
 
@@ -976,7 +977,7 @@ def build(md):
             body.append("\\subsection{%s}\\label{sec:%s}" % (inline(m.group(2).strip()), m.group(1)))
             i += 1
             continue
-        if l.startswith("*") and l.endswith("*") and ("Anonymous submission" in l or "Submission to Digital Finance" in l):
+        if l.startswith("*") and l.endswith("*") and not abstract and not in_abstract:   # front-matter lines before the abstract
             i += 1
             continue
         cap = split_caption(l)
@@ -1057,7 +1058,7 @@ def build(md):
 
 PREAMBLE_HEAD = r"""\documentclass[pdflatex,sn-apa]{sn-jnl}
 \usepackage{graphicx}\usepackage{multirow}\usepackage{amsmath,amssymb,amsfonts}\usepackage{amsthm}
-\usepackage[title]{appendix}\usepackage{xcolor}\usepackage{textcomp}\usepackage{manyfoot}\usepackage{booktabs}\usepackage{array}
+\usepackage[title]{appendix}\usepackage{orcidlink}\usepackage{xcolor}\usepackage{textcomp}\usepackage{manyfoot}\usepackage{booktabs}\usepackage{array}
 \newcommand{\mcell}[2][c]{\begin{tabular}[t]{@{}#1@{}}#2\end{tabular}}
 \raggedbottom
 \title{m}\author*[1]{\fnm{A} \sur{B}}\affil*[1]{\orgname{I}}\abstract{a}\keywords{k}
@@ -1065,7 +1066,7 @@ PREAMBLE_HEAD = r"""\documentclass[pdflatex,sn-apa]{sn-jnl}
 
 PREAMBLE = r"""\documentclass[pdflatex,sn-apa]{sn-jnl}
 \usepackage{graphicx}\usepackage{multirow}\usepackage{amsmath,amssymb,amsfonts}\usepackage{amsthm}
-\usepackage[title]{appendix}\usepackage{xcolor}\usepackage{textcomp}\usepackage{manyfoot}\usepackage{booktabs}\usepackage{array}
+\usepackage[title]{appendix}\usepackage{orcidlink}\usepackage{xcolor}\usepackage{textcomp}\usepackage{manyfoot}\usepackage{booktabs}\usepackage{array}
 \newcommand{\mcell}[2][c]{\begin{tabular}[t]{@{}#1@{}}#2\end{tabular}}
 \renewcommand\topfraction{.95}\renewcommand\bottomfraction{.5}\renewcommand\textfraction{.05}\renewcommand\floatpagefraction{.8}
 \setcounter{totalnumber}{4}\setcounter{topnumber}{3}
@@ -1075,7 +1076,7 @@ PREAMBLE = r"""\documentclass[pdflatex,sn-apa]{sn-jnl}
 
 \title[%(short)s]{%(title)s}
 
-\author*[1]{\fnm{%(given)s} \sur{%(family)s}}\email{%(email)s}
+\author*[1]{\fnm{%(given)s} \sur{%(family)s}%(orcidtex)s}\email{%(email)s}
 \affil*[1]{%(affil)s}
 
 \abstract{%(abstract)s}
@@ -1096,7 +1097,7 @@ def main():
     _PH.clear(); LABELS.clear()
     title, abstract, keywords, jel, body = build(md)   # pass 2: final layout
     tex = PREAMBLE % {"short": SHORT_TITLE, "title": inline(title), "given": AUTHOR["given"], "family": AUTHOR["family"],
-                      "email": AUTHOR["email"], "affil": AUTHOR["affil"], "abstract": "\n\n".join(abstract),
+                      "email": AUTHOR["email"], "affil": AUTHOR["affil"], "orcidtex": (r"\orcidlink{%s}" % AUTHOR["orcid"]) if AUTHOR["orcid"] else "", "abstract": "\n\n".join(abstract),
                       "keywords": inline(keywords).replace(";", ","), "jel": inline(jel)}
     tex += "\n".join(body) + "\n\n\\bibliography{refs}\n\n\\end{document}\n"
     tex = re.sub(r"\n{3,}", "\n\n", tex)

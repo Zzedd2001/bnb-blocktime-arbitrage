@@ -91,6 +91,27 @@ for y, label in OUTCOMES:
             cells.append(f"{b:+.2f} ({se:.2f})")
             res.setdefault(y, {})[f"{fork} {reg}"] = {"beta": b, "se": se, "n": n}
     lines.append(f"| {label} | " + " | ".join(cells) + " |")
+# within-regime elasticities with log volume and log liquidity added (Table 5, lower rows)
+lines.append("\nWithin each regime with log volume and log liquidity added (same hours, hour-of-day and pool FE):\n")
+lines.append("| Outcome | " + " | ".join(f"{f} {r}" for f in DT for r in ("pre", "post")) + " |")
+lines.append("|---|" + "---|" * 6)
+comb = ["| Outcome | Controls | " + " | ".join(f"{f[:3]}. {r} ({DT[f][0 if r == 'pre' else 1]:g} s)" for f in DT for r in ("pre", "post")) + " |",
+        "|:--|:--|" + ":--|" * 6]
+for y, label in OUTCOMES:
+    cells, cells0 = [], []
+    for fork in DT:
+        for reg in ("pre", "post"):
+            d = H[(H["fork"] == fork) & (H["regime"] == reg)]
+            b, se, n = fit(d, y, "+ log_volume + log_liq_mean")
+            cells.append(f"{b:+.2f} ({se:.2f})")
+            res.setdefault(y, {})[f"{fork} {reg} +controls"] = {"beta": b, "se": se, "n": n}
+            r0 = res[y][f"{fork} {reg}"]
+            cells0.append(f"{r0['beta']:+.2f} ({r0['se']:.2f})")
+    lines.append(f"| {label} | " + " | ".join(cells) + " |")
+    comb.append(f"| {label} | none | " + " | ".join(cells0) + " |")
+    comb.append(f"| | + log volume, log L | " + " | ".join(cells) + " |")
+open(os.path.join(OUT, "tables_v6", "table_volcomp_combined.md"), "w", encoding="utf-8").write("\n".join(comb).replace("-", "−").replace("−−", "--") + "\n")
+
 # with volume and liquidity controls, pooled by fork with regime FE
 lines.append("\nWith log volume and log liquidity added, pooled across the two regimes of each fork (regime fixed effect):\n")
 lines.append("| Outcome | Lorentz | Maxwell | Fermi |")

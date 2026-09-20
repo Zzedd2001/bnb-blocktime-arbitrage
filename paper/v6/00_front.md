@@ -1,5 +1,7 @@
 # Faster Blocks Fall Short of the Square-Root Law: Arbitrage Rents and Latency across Three Block-Interval Reductions on BNB Chain
 
+*Zhengdong Zhu (ORCID 0009-0001-8953-0061) — School of Business, Macau University of Science and Technology, Macau, China — 2250030525@student.must.edu.mo (corresponding author)*
+
 *Submission to Digital Finance — revised manuscript v6.0 (September 2026)*
 
 ## Abstract

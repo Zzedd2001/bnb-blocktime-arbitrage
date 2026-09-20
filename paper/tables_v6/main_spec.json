@@ -8,7 +8,8 @@
    "pre_slope": -0.003163218380414146,
    "pre_slope_se": 0.001070623480503246,
    "slope_change": -0.006498927573119125,
-   "slope_change_se": 0.0018587228234416783
+   "slope_change_se": 0.0018587228234416783,
+   "net_of_placebo": -0.3279314931400159
   },
   "Overshoot at strict arbitrage (headline)|Maxwell": {
    "b": -0.11026647857418198,
@@ -18,7 +19,8 @@
    "pre_slope": -0.0006335492794389746,
    "pre_slope_se": 0.0014598740911446286,
    "slope_change": -0.00017903633030189557,
-   "slope_change_se": 0.0020985982043628397
+   "slope_change_se": 0.0020985982043628397,
+   "net_of_placebo": -0.03505259044559823
   },
   "Overshoot at strict arbitrage (headline)|Fermi": {
    "b": -0.11463574171777877,
@@ -28,7 +30,8 @@
    "pre_slope": -0.003866545622019385,
    "pre_slope_se": 0.0016972267944068771,
    "slope_change": 0.005137153150042613,
-   "slope_change_se": 0.0020256725322406154
+   "slope_change_se": 0.0020256725322406154,
+   "net_of_placebo": -0.053274766892655735
   },
   "Overshoot at all identified arbitrages|Lorentz": {
    "b": -0.0939085846540742,
