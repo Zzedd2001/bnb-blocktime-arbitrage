@@ -6,18 +6,18 @@ version: "6.0"
 date-released: "2026-09-20"
 license: MIT
 authors:
-  - family-names: "[Family name]"
-    given-names: "[Given name]"
-    orcid: "https://orcid.org/[0000-0000-0000-0000]"
+  - family-names: "Zhu"
+    given-names: "Zhengdong"
+    orcid: "https://orcid.org/0009-0001-8953-0061"
+    affiliation: "School of Business, Macau University of Science and Technology, Macau, China"
+    email: "2250030525@student.must.edu.mo"
 repository-code: "https://github.com/Zzedd2001/bnb-blocktime-arbitrage"
-identifiers:
-  - type: doi
-    value: "[10.5281/zenodo.xxxxxxx — assigned on acceptance]"
 preferred-citation:
   type: article
   title: "Faster Blocks Fall Short of the Square-Root Law: Arbitrage Rents and Latency across Three Block-Interval Reductions on BNB Chain"
   journal: "Digital Finance"
   year: 2026
   authors:
-    - family-names: "[Family name]"
-      given-names: "[Given name]"
+    - family-names: "Zhu"
+      given-names: "Zhengdong"
+      orcid: "https://orcid.org/0009-0001-8953-0061"
