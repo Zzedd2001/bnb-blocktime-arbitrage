@@ -80,7 +80,8 @@ function makeImage(rel) {
   const file = path.resolve(BASE, rel);
   const buf = fs.readFileSync(file);
   const { w, h } = pngSize(buf);
-  const widthIn = 7.0, heightIn = widthIn * h / w;
+  let widthIn = 7.0, heightIn = widthIn * h / w;
+  if (heightIn > 8.2) { heightIn = 8.2; widthIn = heightIn * w / h; }   // keep a tall figure on one page with its caption
   return new Paragraph({
     children: [new ImageRun({ type: "png", data: buf, transformation: { width: Math.round(widthIn * 96), height: Math.round(heightIn * 96) } })],
     alignment: AlignmentType.CENTER, spacing: { before: 120, after: 120 },
@@ -129,8 +130,8 @@ while (i < lines.length) {
   while (i + 1 < lines.length && lines[i + 1].trim() !== "" && !/^(#|\||!\[|- )/.test(lines[i + 1])) { text += " " + lines[++i]; }
   if (/^\*Anonymous/.test(text)) {
     children.push(new Paragraph({ children: inline(text), alignment: AlignmentType.CENTER, spacing: { after: 240 } }));
-  } else if (/^\*\*(Table|Figure) \d+\./.test(text)) {
-    children.push(new Paragraph({ children: inline(text, { size: 19 }), spacing: { before: 120, after: 80 }, alignment: AlignmentType.JUSTIFIED, keepNext: true }));
+  } else if (/^\*\*(Supplementary )?(Table|Figure) [A-Z]?\d+\./.test(text)) {
+    children.push(new Paragraph({ children: inline(text, { size: 19 }), spacing: { before: 120, after: 80 }, alignment: AlignmentType.JUSTIFIED, keepNext: true, keepLines: true }));
   } else if (inRefs) {
     children.push(new Paragraph({ children: inline(text, { size: 19 }), indent: { left: 400, hanging: 400 }, spacing: { after: 80, line: 240 } }));
   } else if (/^log y_pt/.test(text)) {
