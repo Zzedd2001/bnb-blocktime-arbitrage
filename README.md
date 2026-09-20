@@ -1,10 +1,10 @@
 # Replication package — *Faster Blocks Fall Short of the Square-Root Law: Arbitrage Rents and Latency across Three Block-Interval Reductions on BNB Chain*
 
-Anonymised package accompanying the revised manuscript (Digital Finance, revision 1, September 2026).
+Replication package accompanying the revised manuscript (Digital Finance, revision 1, September 2026).
 It contains the data pipeline, the processed data underlying every result, the estimation scripts that
 produce every table and figure of the paper, and a manifest (`MANIFEST.md`) that lists, for each table and
-figure, the script and the input files that generate it. Nothing in the package identifies the author; the
-retrieval scripts read API credentials from environment variables and none is included.
+figure, the script and the input files that generate it. The retrieval scripts read API credentials from
+environment variables and none is included.
 
 ## Contents
 
