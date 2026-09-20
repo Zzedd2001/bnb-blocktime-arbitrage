@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper and the archived package."
+title: "Replication package: Faster Blocks Fall Short of the Square-Root Law: Arbitrage Rents and Latency across Three Block-Interval Reductions on BNB Chain"
+type: software
+version: "6.0"
+date-released: "2026-09-20"
+license: MIT
+authors:
+  - family-names: "[Family name]"
+    given-names: "[Given name]"
+    orcid: "https://orcid.org/[0000-0000-0000-0000]"
+repository-code: "https://github.com/[user]/bnb-blocktime-arbitrage"
+identifiers:
+  - type: doi
+    value: "[10.5281/zenodo.xxxxxxx — assigned on acceptance]"
+preferred-citation:
+  type: article
+  title: "Faster Blocks Fall Short of the Square-Root Law: Arbitrage Rents and Latency across Three Block-Interval Reductions on BNB Chain"
+  journal: "Digital Finance"
+  year: 2026
+  authors:
+    - family-names: "[Family name]"
+      given-names: "[Given name]"

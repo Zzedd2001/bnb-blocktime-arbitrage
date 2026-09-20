@@ -1,0 +1,18 @@
+| Specification               | Arbitrage definition                                  | Lorentz: β (s.e.) [share of law]   | Maxwell: β (s.e.) [share of law]   | Fermi: β (s.e.) [share of law]   |
+|:----------------------------|:------------------------------------------------------|:-----------------------------------|:-----------------------------------|:---------------------------------|
+| RD jump, ±30 d (main)       | All identified arbitrages                             | −0.094*** (0.032) [27%]            | −0.002 (0.043) [1%]                | −0.062 (0.038) [24%]             |
+| RD jump, ±30 d (main)       | Strict arbitrages (headline)                          | −0.293*** (0.036) [84%]            | −0.110*** (0.041) [32%]            | −0.115*** (0.037) [45%]          |
+| RD jump, ±30 d (main)       | Strict arbitrages, bot flow (public routers excluded) | −0.210*** (0.030) [61%]            | −0.108** (0.049) [31%]             | −0.129*** (0.036) [50%]          |
+| RD jump, ±30 d (main)       | CEX-triggered bot arbitrages                          | −0.259*** (0.024) [75%]            | −0.092** (0.040) [26%]             | −0.149*** (0.033) [58%]          |
+| linear trend, ±30 d         | All identified arbitrages                             | −0.093*** (0.034) [27%]            | −0.009 (0.049) [2%]                | −0.061 (0.039) [24%]             |
+| linear trend, ±30 d         | Strict arbitrages (headline)                          | −0.292*** (0.041) [84%]            | −0.110*** (0.041) [32%]            | −0.112*** (0.039) [44%]          |
+| linear trend, ±30 d         | Strict arbitrages, bot flow (public routers excluded) | −0.209*** (0.040) [60%]            | −0.108** (0.049) [31%]             | −0.127*** (0.037) [50%]          |
+| linear trend, ±30 d         | CEX-triggered bot arbitrages                          | −0.258*** (0.034) [74%]            | −0.093** (0.041) [27%]             | −0.147*** (0.035) [57%]          |
+| liquidity and volume, ±14 d | All identified arbitrages                             | −0.201*** (0.032) [58%]            | −0.045 (0.033) [13%]               | −0.045 (0.027) [18%]             |
+| liquidity and volume, ±14 d | Strict arbitrages (headline)                          | −0.357*** (0.036) [103%]           | −0.111*** (0.028) [32%]            | −0.131*** (0.028) [51%]          |
+| liquidity and volume, ±14 d | Strict arbitrages, bot flow (public routers excluded) | −0.285*** (0.030) [82%]            | −0.131*** (0.034) [38%]            | −0.144*** (0.027) [56%]          |
+| liquidity and volume, ±14 d | CEX-triggered bot arbitrages                          | −0.306*** (0.024) [88%]            | −0.117*** (0.030) [34%]            | −0.155*** (0.023) [61%]          |
+| linear trend, ±14 d         | All identified arbitrages                             | +0.006 (0.037) [−2%]               | −0.127** (0.063) [37%]             | +0.010 (0.043) [−4%]             |
+| linear trend, ±14 d         | Strict arbitrages (headline)                          | −0.185*** (0.047) [53%]            | −0.205*** (0.058) [59%]            | −0.017 (0.047) [7%]              |
+| linear trend, ±14 d         | Strict arbitrages, bot flow (public routers excluded) | −0.156*** (0.046) [45%]            | −0.212*** (0.075) [61%]            | −0.027 (0.042) [11%]             |
+| linear trend, ±14 d         | CEX-triggered bot arbitrages                          | −0.282*** (0.037) [81%]            | −0.187*** (0.051) [54%]            | −0.069** (0.029) [27%]           |

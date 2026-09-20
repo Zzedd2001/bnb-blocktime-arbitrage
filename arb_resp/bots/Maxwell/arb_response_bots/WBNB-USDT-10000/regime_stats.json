@@ -1,0 +1,303 @@
+{
+ "pool": "WBNB-USDT-10000",
+ "gamma": 0.01,
+ "n_arb": 695,
+ "dt_ms": {
+  "pre": 1500.652772880775,
+  "post": 750.0606964508999
+ },
+ "windows": {
+  "30d": {
+   "pre": {
+    "n_arb": 274,
+    "n_arb_strict": 73,
+    "dt_ms": 1500.652772880775,
+    "trigger_share": {
+     "cex": 0.5693430656934306,
+     "continuation": 0.33211678832116787,
+     "same_block": 0.07664233576642336,
+     "onchain": 0.014598540145985401,
+     "long": 0.0072992700729927005
+    },
+    "overshoot_bps_mean_cex": 8.033495948024427,
+    "overshoot_bps_mean_onchain": 10.113402777692325,
+    "overshoot_bps_mean_continuation": 8.562806115580948,
+    "overshoot_bps_mean_same_block": 71.98884942638733,
+    "overshoot_bps_mean_long": 9.84343741364144,
+    "n_cex": 130,
+    "share_cex_tau_le_max": 0.8333333333333334,
+    "tau_ms": {
+     "p5": 2556.2,
+     "p10": 5098.4,
+     "p25": 12464.0,
+     "p50": 26406.5,
+     "p75": 40328.75,
+     "p90": 48932.9,
+     "mean": 26709.73076923077,
+     "share_lt_100ms": 0.0,
+     "share_lt_dt": 0.03076923076923077,
+     "mean_sqrt_s": 4.853648810887737
+    },
+    "ell_quantile_ms": {
+     "q10": 4948.334722711922,
+     "q25": 12088.836806779806,
+     "q50": 25656.17361355961
+    },
+    "k_blocks": {
+     "p_k1": 0.03076923076923077,
+     "p_k2": 0.038461538461538464,
+     "p_k3plus": 0.9307692307692308,
+     "mean": 18.284615384615385
+    },
+    "turnbull_ms": {
+     "p25": 1710.0,
+     "median": 4400.0,
+     "p75": 8180.0,
+     "mean": 5028.758444214613,
+     "p_le_dt": 0.1935483870967984
+    },
+    "lognormal_ms": {
+     "median": 18197.704557330708,
+     "sigma": 1.0698300406009418,
+     "mean": 32251.46990946163
+    },
+    "decomposition_bps": {
+     "overshoot": 8.288637654784273,
+     "jump": 0.44311740850750414,
+     "move": 7.8455202462767675,
+     "median_overshoot": 5.367652830175016,
+     "median_jump": 0.19880730608887523,
+     "share_jump_gt_half": 0.07692307692307693
+    },
+    "n_onchain": 4,
+    "addresses": {
+     "n_senders": 21,
+     "hhi_count": 0.11390504785137923,
+     "hhi_volume": 0.16238421811879714,
+     "top1_share": 0.2602739726027397,
+     "top3_share": 0.4657534246575342,
+     "top5_share": 0.6027397260273972,
+     "n_senders_90pct": 14,
+     "n_active_ge_min": 0,
+     "n_bots": 0,
+     "bots_share_of_arbs": 0.0
+    }
+   },
+   "post": {
+    "n_arb": 421,
+    "n_arb_strict": 95,
+    "dt_ms": 750.0606964508999,
+    "trigger_share": {
+     "cex": 0.5225653206650831,
+     "continuation": 0.38004750593824227,
+     "same_block": 0.07125890736342043,
+     "onchain": 0.023752969121140142,
+     "long": 0.0023752969121140144
+    },
+    "overshoot_bps_mean_cex": 9.044847635252848,
+    "overshoot_bps_mean_onchain": 91.76566993322163,
+    "overshoot_bps_mean_continuation": 9.355657135650137,
+    "overshoot_bps_mean_same_block": 230.27017135934415,
+    "overshoot_bps_mean_long": 3.1732726852485604,
+    "n_cex": 189,
+    "share_cex_tau_le_max": 0.8590909090909091,
+    "tau_ms": {
+     "p5": 3909.6000000000004,
+     "p10": 4861.8,
+     "p25": 8688.0,
+     "p50": 16001.0,
+     "p75": 30786.0,
+     "p90": 45400.2,
+     "mean": 21005.59259259259,
+     "share_lt_100ms": 0.005291005291005291,
+     "share_lt_dt": 0.010582010582010581,
+     "mean_sqrt_s": 4.260558047434776
+    },
+    "ell_quantile_ms": {
+     "q10": 4786.79393035491,
+     "q25": 8500.484825887275,
+     "q50": 15625.96965177455
+    },
+    "k_blocks": {
+     "p_k1": 0.010582010582010581,
+     "p_k2": 0.005291005291005291,
+     "p_k3plus": 0.9841269841269841,
+     "mean": 28.46031746031746
+    },
+    "turnbull_ms": {
+     "p25": 4230.0,
+     "median": 5800.0,
+     "p75": 7950.0,
+     "mean": 5807.137665556062,
+     "p_le_dt": 0.04713221059056974
+    },
+    "lognormal_ms": {
+     "median": 14470.977131491456,
+     "sigma": 0.9817571623967041,
+     "mean": 23431.20379155904
+    },
+    "decomposition_bps": {
+     "overshoot": 8.697626004483531,
+     "jump": 0.8236880050857307,
+     "move": 7.873937999397802,
+     "median_overshoot": 7.866220052184046,
+     "median_jump": 0.18064544249582828,
+     "share_jump_gt_half": 0.07936507936507936
+    },
+    "n_onchain": 10,
+    "addresses": {
+     "n_senders": 33,
+     "hhi_count": 0.09340720221606649,
+     "hhi_volume": 0.24404923593633235,
+     "top1_share": 0.24210526315789474,
+     "top3_share": 0.43157894736842106,
+     "top5_share": 0.5368421052631579,
+     "n_senders_90pct": 24,
+     "n_active_ge_min": 1,
+     "n_bots": 0,
+     "bots_share_of_arbs": 0.0
+    }
+   },
+   "effects": {
+    "sqrt_law": -0.34675067124480796,
+    "implied_from_tau": -0.1303306054788969,
+    "ell_paper_equiv_s": 1.7704985323640332,
+    "counterfactual_fixed_latency": -0.802788177704502,
+    "latency_change_component": 0.672457572225605,
+    "p_k1_post_counterfactual": 0.08602759628345505,
+    "p_k1_post_actual": 0.010582010582010581,
+    "d_median_tau_ms": -10405.5,
+    "mechanical_d_median_ms": -375.2960382149376,
+    "d_p10_tau_ms": -236.59999999999945,
+    "mechanical_d_p10_ms": -75.05920764298752,
+    "d_log_overshoot_cex": 0.048164495706422346,
+    "d_log_move_cex": 0.0036156187617862497,
+    "d_log_jump_cex": 0.6199570581828554,
+    "paired_senders": {
+     "n": 0,
+     "median_d_p10_ms": NaN,
+     "median_d_p50_ms": NaN,
+     "share_faster_than_mechanical_p10": NaN
+    },
+    "entrants": {
+     "n_entrants": 1,
+     "n_exits": 0,
+     "n_stayers": 0,
+     "entrants_share_of_post_arbs": 0.24210526315789474
+    }
+   }
+  },
+  "14d": {
+   "pre": {
+    "n_arb": 131,
+    "n_arb_strict": 41,
+    "dt_ms": 1500.652772880775,
+    "trigger_share": {
+     "cex": 0.5343511450381679,
+     "continuation": 0.37404580152671757,
+     "same_block": 0.061068702290076333,
+     "long": 0.015267175572519083,
+     "onchain": 0.015267175572519083
+    },
+    "overshoot_bps_mean_cex": 8.288609163548305,
+    "overshoot_bps_mean_onchain": 11.108285376314008,
+    "overshoot_bps_mean_continuation": 7.501712466472082,
+    "overshoot_bps_mean_same_block": 40.66913932933633,
+    "overshoot_bps_mean_long": 9.84343741364144,
+    "n_cex": 56,
+    "share_cex_tau_le_max": 0.8,
+    "tau_ms": {
+     "p5": 2567.0,
+     "p10": 4107.5,
+     "p25": 10629.25,
+     "p50": 22165.0,
+     "p75": 34659.0,
+     "p90": 47550.0,
+     "mean": 23984.660714285714,
+     "share_lt_100ms": 0.0,
+     "share_lt_dt": 0.017857142857142856,
+     "mean_sqrt_s": 4.570049205973372
+    },
+    "ell_quantile_ms": {
+     "q10": 3957.4347227119224,
+     "q25": 10254.086806779806,
+     "q50": 21414.67361355961
+    },
+    "k_blocks": {
+     "p_k1": 0.017857142857142856,
+     "p_k2": 0.07142857142857142,
+     "p_k3plus": 0.9107142857142857,
+     "mean": 16.428571428571427
+    },
+    "turnbull_ms": {
+     "p25": 1910.0,
+     "median": 4370.0,
+     "p75": 7900.0,
+     "mean": 4694.083333657841,
+     "p_le_dt": 0.12000000021766176
+    },
+    "lognormal_ms": {
+     "median": 15794.350391274189,
+     "sigma": 1.090782715708548,
+     "mean": 28632.88184761246
+    },
+    "decomposition_bps": {
+     "overshoot": 8.86288008954896,
+     "jump": 0.5174919386106658,
+     "move": 8.345388150938295,
+     "median_overshoot": 4.970870359629707,
+     "median_jump": 0.2935913954000592,
+     "share_jump_gt_half": 0.05357142857142857
+    },
+    "n_onchain": 2,
+    "addresses": {
+     "n_senders": 13,
+     "hhi_count": 0.23140987507436053,
+     "hhi_volume": 0.1988436514531034,
+     "top1_share": 0.43902439024390244,
+     "top3_share": 0.6585365853658537,
+     "top5_share": 0.7804878048780488,
+     "n_senders_90pct": 9,
+     "n_active_ge_min": 0,
+     "n_bots": 0,
+     "bots_share_of_arbs": 0.0
+    }
+   },
+   "post": {
+    "n_arb": 106,
+    "n_arb_strict": 23,
+    "dt_ms": 750.0606964508999,
+    "trigger_share": {
+     "continuation": 0.5188679245283019,
+     "cex": 0.3490566037735849,
+     "same_block": 0.07547169811320754,
+     "onchain": 0.04716981132075472,
+     "long": 0.009433962264150943
+    },
+    "overshoot_bps_mean_cex": 4.791758751773836,
+    "overshoot_bps_mean_onchain": 35.39367632222099,
+    "overshoot_bps_mean_continuation": 5.544613974613957,
+    "overshoot_bps_mean_same_block": 69.38410612035713,
+    "overshoot_bps_mean_long": 3.1732726852485604,
+    "n_cex": 25,
+    "share_cex_tau_le_max": 0.6756756756756757,
+    "n_onchain": 5,
+    "addresses": {
+     "n_senders": 11,
+     "hhi_count": 0.13799621928166347,
+     "hhi_volume": 0.22686269909247295,
+     "top1_share": 0.2608695652173913,
+     "top3_share": 0.5217391304347826,
+     "top5_share": 0.6956521739130435,
+     "n_senders_90pct": 9,
+     "n_active_ge_min": 0,
+     "n_bots": 0,
+     "bots_share_of_arbs": 0.0
+    }
+   },
+   "effects": {
+    "sqrt_law": -0.34675067124480796
+   }
+  }
+ }
+}
