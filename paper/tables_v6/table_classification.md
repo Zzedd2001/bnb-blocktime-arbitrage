@@ -1,0 +1,6 @@
+| Specification         | Arbitrage definition                                  | Lorentz: β (s.e.) [share of law]   | Maxwell: β (s.e.) [share of law]   | Fermi: β (s.e.) [share of law]   |
+|:----------------------|:------------------------------------------------------|:-----------------------------------|:-----------------------------------|:---------------------------------|
+| RD jump, ±30 d (main) | All identified arbitrages                             | −0.094*** (0.032) [27%]            | −0.002 (0.043) [1%]                | −0.062 (0.038) [24%]             |
+| RD jump, ±30 d (main) | Strict arbitrages (headline)                          | −0.293*** (0.036) [84%]            | −0.110*** (0.041) [32%]            | −0.115*** (0.037) [45%]          |
+| RD jump, ±30 d (main) | Strict arbitrages, bot flow (public routers excluded) | −0.210*** (0.030) [61%]            | −0.108** (0.049) [31%]             | −0.129*** (0.036) [50%]          |
+| RD jump, ±30 d (main) | CEX-triggered bot arbitrages                          | −0.259*** (0.024) [75%]            | −0.092** (0.040) [26%]             | −0.149*** (0.033) [58%]          |

@@ -1,0 +1,11 @@
+{
+ "Lorentz|overshoot_strict_bps": -0.3148606393426888,
+ "Lorentz|arb_profit": -0.2546377029388266,
+ "Lorentz|arb_loss": -0.02557926278848805,
+ "Maxwell|overshoot_strict_bps": -0.23431438263000626,
+ "Maxwell|arb_profit": -0.5099640506250814,
+ "Maxwell|arb_loss": -0.013977561521671504,
+ "Fermi|overshoot_strict_bps": -0.21883804100444526,
+ "Fermi|arb_profit": -0.37285987877054677,
+ "Fermi|arb_loss": -0.03467386693392094
+}

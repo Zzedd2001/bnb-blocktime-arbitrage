@@ -1,0 +1,42 @@
+# ---- never commit credentials or local configuration
+.env
+.env.*
+*.key
+*.pem
+secrets*/
+
+# ---- Python / editor / OS noise
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
+.idea/
+
+# ---- large data: kept out of git (GitHub Release / Zenodo instead)
+*.zip
+arb_resp/**/arbs_sample.parquet
+arb_resp/**/*_arbs_tx.parquet
+arb_resp/**/arbs.parquet
+sim_sigma/
+sim_response/
+ctrl_*/
+full_*/
+pilot*/
+binance_agg/
+timestamps_*.parquet
+swaps_*.parquet
+swaps_enriched.parquet
+results_agg*/**/swaps_enriched.parquet
+
+# ---- build products of the manuscript
+build/
+sn_v6/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.out
+*.toc

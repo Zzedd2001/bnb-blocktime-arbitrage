@@ -1,0 +1,290 @@
+{
+ "RD jump, \u00b130 d (main)|All identified arbitrages|Lorentz": [
+  -0.0939085846540742,
+  0.031768299201242745,
+  0.003116096308369598,
+  4319
+ ],
+ "RD jump, \u00b130 d (main)|All identified arbitrages|Maxwell": [
+  -0.0024930808352718174,
+  0.04288535623375251,
+  0.9536421978916366,
+  4309
+ ],
+ "RD jump, \u00b130 d (main)|All identified arbitrages|Fermi": [
+  -0.06204922423931864,
+  0.03833787520743573,
+  0.10555840736488518,
+  4311
+ ],
+ "RD jump, \u00b130 d (main)|Strict arbitrages (headline)|Lorentz": [
+  -0.29265577037806423,
+  0.036141844084733525,
+  5.613598475485788e-16,
+  4319
+ ],
+ "RD jump, \u00b130 d (main)|Strict arbitrages (headline)|Maxwell": [
+  -0.11026647857418198,
+  0.0413088512540643,
+  0.007600535151507444,
+  4303
+ ],
+ "RD jump, \u00b130 d (main)|Strict arbitrages (headline)|Fermi": [
+  -0.11463574171777877,
+  0.03714826906306939,
+  0.0020293893041530057,
+  4307
+ ],
+ "RD jump, \u00b130 d (main)|Strict arbitrages, bot flow (public routers excluded)|Lorentz": [
+  -0.21032250638028913,
+  0.02975464604981093,
+  1.5654945364689864e-12,
+  4318
+ ],
+ "RD jump, \u00b130 d (main)|Strict arbitrages, bot flow (public routers excluded)|Maxwell": [
+  -0.10767576137591538,
+  0.04859375712573559,
+  0.026702785362650253,
+  4286
+ ],
+ "RD jump, \u00b130 d (main)|Strict arbitrages, bot flow (public routers excluded)|Fermi": [
+  -0.12866560206044106,
+  0.03603418743728217,
+  0.00035609152823409026,
+  4306
+ ],
+ "RD jump, \u00b130 d (main)|CEX-triggered bot arbitrages|Lorentz": [
+  -0.2588814082433983,
+  0.023760789646276165,
+  1.213391763957226e-27,
+  4285
+ ],
+ "RD jump, \u00b130 d (main)|CEX-triggered bot arbitrages|Maxwell": [
+  -0.09158908454113711,
+  0.03991041363804356,
+  0.021740757094487532,
+  4213
+ ],
+ "RD jump, \u00b130 d (main)|CEX-triggered bot arbitrages|Fermi": [
+  -0.14914902686237164,
+  0.03315818038967374,
+  6.856135136969182e-06,
+  4265
+ ],
+ "linear trend, \u00b130 d|All identified arbitrages|Lorentz": [
+  -0.09342841531209498,
+  0.033840812604592437,
+  0.005765632346334927,
+  4319
+ ],
+ "linear trend, \u00b130 d|All identified arbitrages|Maxwell": [
+  -0.008591332967592426,
+  0.04879341514776892,
+  0.860234499584092,
+  4309
+ ],
+ "linear trend, \u00b130 d|All identified arbitrages|Fermi": [
+  -0.06053308207583035,
+  0.03934130745699066,
+  0.12388616790887945,
+  4311
+ ],
+ "linear trend, \u00b130 d|Strict arbitrages (headline)|Lorentz": [
+  -0.2917725821207334,
+  0.0413796510188103,
+  1.774926810086729e-12,
+  4319
+ ],
+ "linear trend, \u00b130 d|Strict arbitrages (headline)|Maxwell": [
+  -0.11037569679263136,
+  0.0414501476901091,
+  0.007748099470776425,
+  4303
+ ],
+ "linear trend, \u00b130 d|Strict arbitrages (headline)|Fermi": [
+  -0.11228209748712953,
+  0.03889910334162576,
+  0.003895579762022978,
+  4307
+ ],
+ "linear trend, \u00b130 d|Strict arbitrages, bot flow (public routers excluded)|Lorentz": [
+  -0.20911236675452305,
+  0.0401725767555615,
+  1.936301515955054e-07,
+  4318
+ ],
+ "linear trend, \u00b130 d|Strict arbitrages, bot flow (public routers excluded)|Maxwell": [
+  -0.10816027266929833,
+  0.049053242731541394,
+  0.02745713820808235,
+  4286
+ ],
+ "linear trend, \u00b130 d|Strict arbitrages, bot flow (public routers excluded)|Fermi": [
+  -0.12661210112359086,
+  0.03740446552036896,
+  0.0007119222259584123,
+  4306
+ ],
+ "linear trend, \u00b130 d|CEX-triggered bot arbitrages|Lorentz": [
+  -0.25799832702508063,
+  0.03394454364823532,
+  2.947992367555891e-14,
+  4285
+ ],
+ "linear trend, \u00b130 d|CEX-triggered bot arbitrages|Maxwell": [
+  -0.09255619353048665,
+  0.04093233649643266,
+  0.023746883819486603,
+  4213
+ ],
+ "linear trend, \u00b130 d|CEX-triggered bot arbitrages|Fermi": [
+  -0.14659229945416874,
+  0.0349725768883361,
+  2.769505378448e-05,
+  4265
+ ],
+ "liquidity and volume, \u00b114 d|All identified arbitrages|Lorentz": [
+  -0.20051384518227464,
+  0.03225035108624771,
+  5.0540892604959e-10,
+  2015
+ ],
+ "liquidity and volume, \u00b114 d|All identified arbitrages|Maxwell": [
+  -0.04496687446155388,
+  0.032835832645165944,
+  0.17086014343702582,
+  2009
+ ],
+ "liquidity and volume, \u00b114 d|All identified arbitrages|Fermi": [
+  -0.044987385378274965,
+  0.02745296038862094,
+  0.10127409044377682,
+  2009
+ ],
+ "liquidity and volume, \u00b114 d|Strict arbitrages (headline)|Lorentz": [
+  -0.35675475135721707,
+  0.03635108641172834,
+  9.786624121158204e-23,
+  2015
+ ],
+ "liquidity and volume, \u00b114 d|Strict arbitrages (headline)|Maxwell": [
+  -0.11078335457690926,
+  0.0280765841350129,
+  7.954853907003186e-05,
+  2006
+ ],
+ "liquidity and volume, \u00b114 d|Strict arbitrages (headline)|Fermi": [
+  -0.13146689841015533,
+  0.028111883232263487,
+  2.9172778903228793e-06,
+  2006
+ ],
+ "liquidity and volume, \u00b114 d|Strict arbitrages, bot flow (public routers excluded)|Lorentz": [
+  -0.28529065043617574,
+  0.03006033545603933,
+  2.297059827213222e-21,
+  2014
+ ],
+ "liquidity and volume, \u00b114 d|Strict arbitrages, bot flow (public routers excluded)|Maxwell": [
+  -0.13108643218895286,
+  0.03379961470947286,
+  0.00010517122123633252,
+  1992
+ ],
+ "liquidity and volume, \u00b114 d|Strict arbitrages, bot flow (public routers excluded)|Fermi": [
+  -0.1439456149831412,
+  0.02669627904954009,
+  6.968825336408741e-08,
+  2005
+ ],
+ "liquidity and volume, \u00b114 d|CEX-triggered bot arbitrages|Lorentz": [
+  -0.30556375023629656,
+  0.023839382438619817,
+  1.3067744861557389e-37,
+  1988
+ ],
+ "liquidity and volume, \u00b114 d|CEX-triggered bot arbitrages|Maxwell": [
+  -0.11740773212032363,
+  0.029691215993506086,
+  7.676167897391772e-05,
+  1944
+ ],
+ "liquidity and volume, \u00b114 d|CEX-triggered bot arbitrages|Fermi": [
+  -0.15484527545378093,
+  0.02280481525630773,
+  1.1211378319654584e-11,
+  1975
+ ],
+ "linear trend, \u00b114 d|All identified arbitrages|Lorentz": [
+  0.006179332075193646,
+  0.0369524602926405,
+  0.8671939318689054,
+  2015
+ ],
+ "linear trend, \u00b114 d|All identified arbitrages|Maxwell": [
+  -0.12659867862685226,
+  0.06304225389103353,
+  0.04462671998877969,
+  2009
+ ],
+ "linear trend, \u00b114 d|All identified arbitrages|Fermi": [
+  0.009732904357871441,
+  0.04276594478431902,
+  0.8199685765499023,
+  2009
+ ],
+ "linear trend, \u00b114 d|Strict arbitrages (headline)|Lorentz": [
+  -0.18535743333619722,
+  0.04671988701053652,
+  7.265476334860599e-05,
+  2015
+ ],
+ "linear trend, \u00b114 d|Strict arbitrages (headline)|Maxwell": [
+  -0.20529192508160915,
+  0.05774655465834793,
+  0.00037790632290141037,
+  2006
+ ],
+ "linear trend, \u00b114 d|Strict arbitrages (headline)|Fermi": [
+  -0.016646668588365294,
+  0.04665123664322348,
+  0.7212173457292219,
+  2006
+ ],
+ "linear trend, \u00b114 d|Strict arbitrages, bot flow (public routers excluded)|Lorentz": [
+  -0.15558291401239518,
+  0.045679240855675395,
+  0.0006592524698010774,
+  2014
+ ],
+ "linear trend, \u00b114 d|Strict arbitrages, bot flow (public routers excluded)|Maxwell": [
+  -0.21156903104802588,
+  0.07457804556268902,
+  0.00455566060513057,
+  1992
+ ],
+ "linear trend, \u00b114 d|Strict arbitrages, bot flow (public routers excluded)|Fermi": [
+  -0.027264632398664,
+  0.04215533859030887,
+  0.5177835127542489,
+  2005
+ ],
+ "linear trend, \u00b114 d|CEX-triggered bot arbitrages|Lorentz": [
+  -0.28175942485416733,
+  0.0366807711574946,
+  1.5736768902203666e-14,
+  1988
+ ],
+ "linear trend, \u00b114 d|CEX-triggered bot arbitrages|Maxwell": [
+  -0.18672902860987373,
+  0.05135246281396056,
+  0.00027666438279910706,
+  1944
+ ],
+ "linear trend, \u00b114 d|CEX-triggered bot arbitrages|Fermi": [
+  -0.06884021006946232,
+  0.028774210449204737,
+  0.01673733811993506,
+  1975
+ ]
+}

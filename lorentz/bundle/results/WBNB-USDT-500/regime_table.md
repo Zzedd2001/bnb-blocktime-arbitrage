@@ -1,0 +1,36 @@
+|                             |          pre |         post |
+|:----------------------------|-------------:|-------------:|
+| hours                       |  720         |  720         |
+| n_blocks                    |    8.638e+05 |    1.727e+06 |
+| n_headers                   |    8.638e+05 |    1.727e+06 |
+| block_interval_ms           | 3001         | 1501         |
+| n_intervals                 |    8.638e+05 |    1.727e+06 |
+| swaps                       |    1.186e+06 |    4.057e+06 |
+| swaps_per_block             |    1.374     |    2.349     |
+| share_blocks_with_swap      |    0.5595    |    0.7364    |
+| volume_quote_per_hour       |    1.423e+06 |    3.829e+06 |
+| arb_swaps_share             |    0.1566    |    0.08688   |
+| arb_strict_share            |    0.02636   |    0.01334   |
+| arb_volume_share            |    0.7211    |    0.289     |
+| arb_swaps_per_hour          |  258         |  489.6       |
+| median_arb_size_quote       |  993.7       |  518.9       |
+| fee_bps_of_volume           |    5         |    5         |
+| arb_loss_bps_of_volume      |    4.91      |    1.774     |
+| lp_net_bps_of_volume        |    0.09037   |    3.226     |
+| arb_loss_over_fee           |    0.9819    |    0.3547    |
+| arb_loss_per_hour_quote     |  698.7       |  679.1       |
+| arb_loss_per_arb_quote      |    2.991     |    1.496     |
+| mean_abs_dev_bps            |    3.169     |    2.865     |
+| share_sec_outside_band      |    0.1798    |    0.1225    |
+| dev_half_life_s             |   30.9       |   35.85      |
+| outside_band_episode_mean_s |    7.769     |    5.817     |
+| cex_vol_1s_bps              |    0.6574    |    0.5739    |
+| cex_vol_1m_per_s_bps        |    0.7763    |    0.6981    |
+| arb_loss_rate_over_sigma2   |    1.16e+11  |    1.394e+11 |
+| arb_loss_rate_over_sigma3   |    1.494e+15 |    1.996e+15 |
+| markout_30s_bps_of_volume   |    0.06256   |    3.112     |
+| IS_window_hours             |  336         |  336         |
+| IS_dex_upper                |    0.003028  |    0.0005841 |
+| IS_dex_lower                |    0.001285  |    0.0005684 |
+| alpha_dex                   |   -0.008972  |   -0.01119   |
+| alpha_cex                   |   -0.0005292 |   -0.0004868 |

@@ -1,0 +1,87 @@
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/usr/local/lib/python3.11/dist-packages/pandas/core/arraylike.py:402: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+       窗口          控制         被解释变量              kline               tick 差（tick−kline） Δt 弹性 kline Δt 弹性 tick
+0   ±30 d           σ  log 越界幅度（严格）  -0.201*** (0.021)  -0.099*** (0.020)        +0.102        0.29       0.14
+2   ±30 d           σ     log 套利者利润  -0.606*** (0.072)  -0.313*** (0.062)        +0.293        0.87       0.45
+4   ±30 d           σ  log LP 损失（总）  -0.112*** (0.035)   -0.073** (0.033)        +0.039                       
+5   ±30 d           σ      log 套利笔数  -0.168*** (0.035)   -0.083** (0.032)        +0.085                       
+6   ±30 d     σ+L+vol  log 越界幅度（严格）  -0.236*** (0.018)  -0.132*** (0.018)        +0.104        0.34       0.19
+8   ±30 d     σ+L+vol     log 套利者利润  -0.524*** (0.058)  -0.217*** (0.049)        +0.307        0.76       0.31
+10  ±30 d     σ+L+vol  log LP 损失（总）     -0.013 (0.010)  +0.028*** (0.010)        +0.041                       
+11  ±30 d     σ+L+vol      log 套利笔数  -0.133*** (0.027)    -0.043* (0.024)        +0.091                       
+12  ±30 d  σ+L+vol+趋势  log 越界幅度（严格）  -0.238*** (0.039)  -0.110*** (0.041)        +0.129        0.34       0.16
+14  ±30 d  σ+L+vol+趋势     log 套利者利润     -0.080 (0.112)     +0.138 (0.100)        +0.217        0.11      -0.20
+16  ±30 d  σ+L+vol+趋势  log LP 损失（总）     -0.017 (0.026)     +0.001 (0.022)        +0.018                       
+17  ±30 d  σ+L+vol+趋势      log 套利笔数  +0.138*** (0.044)  +0.176*** (0.045)        +0.039                       
+18  ±30 d          RD  log 越界幅度（严格）  -0.239*** (0.039)  -0.110*** (0.041)        +0.129        0.34       0.16
+20  ±30 d          RD     log 套利者利润     -0.064 (0.104)    +0.153* (0.082)        +0.217        0.09      -0.22
+22  ±30 d          RD  log LP 损失（总）     -0.017 (0.025)     +0.001 (0.023)        +0.018                       
+23  ±30 d          RD      log 套利笔数  +0.138*** (0.044)  +0.177*** (0.045)        +0.039                       
+24  ±14 d           σ  log 越界幅度（严格）  -0.242*** (0.032)  -0.128*** (0.032)        +0.113        0.35       0.18
+26  ±14 d           σ     log 套利者利润    -0.156* (0.094)     +0.083 (0.071)        +0.239        0.22      -0.12
+28  ±14 d           σ  log LP 损失（总）     +0.037 (0.055)     +0.066 (0.053)        +0.029                       
+29  ±14 d           σ      log 套利笔数     +0.021 (0.037)   +0.080** (0.036)        +0.059                       
+30  ±14 d     σ+L+vol  log 越界幅度（严格）  -0.226*** (0.029)  -0.111*** (0.028)        +0.115        0.33       0.16
+32  ±14 d     σ+L+vol     log 套利者利润  -0.206*** (0.076)     +0.045 (0.062)        +0.251        0.30      -0.07
+34  ±14 d     σ+L+vol  log LP 损失（总）     -0.018 (0.020)     +0.012 (0.018)        +0.031                       
+35  ±14 d     σ+L+vol      log 套利笔数     +0.013 (0.034)   +0.075** (0.034)        +0.061                       
+36  ±14 d  σ+L+vol+趋势  log 越界幅度（严格）  -0.350*** (0.048)  -0.205*** (0.058)        +0.145        0.50       0.30
+38  ±14 d  σ+L+vol+趋势     log 套利者利润  -0.496*** (0.139)    -0.212* (0.111)        +0.283        0.72       0.31
+40  ±14 d  σ+L+vol+趋势  log LP 损失（总）     -0.038 (0.035)     -0.026 (0.031)        +0.012                       
+41  ±14 d  σ+L+vol+趋势      log 套利笔数   +0.140** (0.063)  +0.180*** (0.066)        +0.040                       
+42  ±14 d          RD  log 越界幅度（严格）  -0.350*** (0.047)  -0.206*** (0.056)        +0.145        0.51       0.30
+44  ±14 d          RD     log 套利者利润  -0.500*** (0.119)  -0.218*** (0.082)        +0.282        0.72       0.31
+46  ±14 d          RD  log LP 损失（总）     -0.038 (0.034)     -0.026 (0.030)        +0.012                       
+47  ±14 d          RD      log 套利笔数   +0.140** (0.064)  +0.180*** (0.067)        +0.040                       
+48   ±7 d           σ  log 越界幅度（严格）  -0.313*** (0.036)  -0.187*** (0.045)        +0.126        0.45       0.27
+50   ±7 d           σ     log 套利者利润    -0.240* (0.124)     +0.021 (0.087)        +0.261        0.35      -0.03
+52   ±7 d           σ  log LP 损失（总）   +0.085** (0.043)   +0.108** (0.043)        +0.022                       
+53   ±7 d           σ      log 套利笔数   +0.090** (0.045)  +0.140*** (0.043)        +0.050                       
+54   ±7 d     σ+L+vol  log 越界幅度（严格）  -0.302*** (0.036)  -0.169*** (0.046)        +0.133        0.44       0.24
+56   ±7 d     σ+L+vol     log 套利者利润  -0.371*** (0.100)     -0.087 (0.067)        +0.284        0.53       0.13
+58   ±7 d     σ+L+vol  log LP 损失（总）     -0.032 (0.024)     -0.008 (0.022)        +0.024                       
+59   ±7 d     σ+L+vol      log 套利笔数     +0.062 (0.049)   +0.114** (0.050)        +0.052                       
+60   ±7 d  σ+L+vol+趋势  log 越界幅度（严格）  -0.273*** (0.060)     -0.104 (0.072)        +0.169        0.39       0.15
+62   ±7 d  σ+L+vol+趋势     log 套利者利润  -0.557*** (0.157)   -0.263** (0.131)        +0.294        0.80       0.38
+64   ±7 d  σ+L+vol+趋势  log LP 损失（总）  -0.080*** (0.023)  -0.077*** (0.024)        +0.003                       
+65   ±7 d  σ+L+vol+趋势      log 套利笔数   +0.195** (0.083)  +0.230*** (0.086)        +0.035                       
+
+      窗口          控制        楔子：越界幅度（严格）    σ 系数（严格越界楔子）  n（严格越界楔子）        楔子：越界幅度（全部）           楔子：套利者利润        楔子：LP 损失（总）            楔子：套利笔数
+0  ±30 d           σ  +0.107*** (0.007)  -0.011 (0.008)       4304  +0.088*** (0.006)  +0.346*** (0.021)  +0.051*** (0.003)  +0.096*** (0.005)
+1  ±30 d     σ+L+vol  +0.108*** (0.007)  -0.009 (0.018)       4304  +0.088*** (0.006)  +0.345*** (0.021)  +0.051*** (0.003)  +0.097*** (0.005)
+2  ±30 d  σ+L+vol+趋势  +0.127*** (0.017)  -0.008 (0.018)       4304  +0.061*** (0.011)  +0.212*** (0.039)  +0.023*** (0.006)  +0.042*** (0.007)
+3  ±14 d           σ  +0.115*** (0.012)  -0.014 (0.011)       2004  +0.070*** (0.008)  +0.268*** (0.032)  +0.037*** (0.005)  +0.066*** (0.006)
+4  ±14 d     σ+L+vol  +0.114*** (0.012)  +0.005 (0.029)       2004  +0.070*** (0.007)  +0.271*** (0.029)  +0.037*** (0.005)  +0.066*** (0.006)
+5  ±14 d  σ+L+vol+趋势  +0.142*** (0.031)  +0.002 (0.029)       2004  +0.085*** (0.013)  +0.281*** (0.054)   +0.017** (0.008)  +0.044*** (0.009)
+
+      窗口        跳变：越界幅度（严格）       分叉前斜率（严格）  跳变（严格，加 log 参考价差）         log 参考价差系数        跳变：越界幅度（全部）           跳变：套利者利润            跳变：套利笔数        跳变：LP 损失（总）
+0  ±30 d  +0.128*** (0.016)  +0.000 (0.000)  +0.121*** (0.016)  +0.027*** (0.007)  +0.064*** (0.010)  +0.217*** (0.041)  +0.045*** (0.007)  +0.024*** (0.005)
+1  ±14 d  +0.141*** (0.028)  -0.002 (0.001)  +0.137*** (0.028)   +0.024** (0.011)  +0.080*** (0.014)  +0.264*** (0.057)  +0.047*** (0.009)  +0.020*** (0.006)
