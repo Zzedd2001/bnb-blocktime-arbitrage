@@ -15,6 +15,21 @@ Elasticity (or level response for shares) of each hourly statistic to log σ wit
 | crossing jump J (log) | +0.22 (0.03) | +0.35 (0.04) | +0.39 (0.03) | +0.37 (0.05) | +0.23 (0.04) | +0.39 (0.03) |
 | overshoot of CEX-triggered arbs (log) | +0.43 (0.03) | +0.47 (0.05) | +0.45 (0.03) | +0.44 (0.03) | +0.32 (0.03) | +0.56 (0.03) |
 
+Within each regime with log volume and log liquidity added (same hours, hour-of-day and pool FE):
+
+| Outcome | Lorentz pre | Lorentz post | Maxwell pre | Maxwell post | Fermi pre | Fermi post |
+|---|---|---|---|---|---|---|
+| median response time τ (log) | -0.08 (0.03) | -0.08 (0.05) | -0.08 (0.03) | -0.01 (0.03) | -0.04 (0.03) | -0.05 (0.02) |
+| 10th-percentile τ (log) | -0.13 (0.10) | -0.25 (0.09) | -0.08 (0.11) | -0.05 (0.07) | -0.09 (0.08) | +0.06 (0.07) |
+| E[√τ] (log) | -0.08 (0.02) | -0.06 (0.03) | -0.11 (0.03) | -0.03 (0.03) | -0.09 (0.02) | -0.07 (0.02) |
+| share landing in the first block (level) | +0.04 (0.02) | +0.06 (0.03) | +0.08 (0.02) | -0.01 (0.03) | +0.07 (0.02) | +0.04 (0.02) |
+| active contracts in the hour (log) | +0.05 (0.07) | +0.25 (0.10) | +0.08 (0.09) | +0.08 (0.05) | +0.27 (0.06) | +0.08 (0.05) |
+| bot arbitrages in the hour (log) | +0.42 (0.08) | +0.21 (0.09) | +0.44 (0.08) | +0.50 (0.05) | +0.70 (0.10) | +0.67 (0.08) |
+| share of the largest contract (level) | -0.03 (0.02) | -0.12 (0.04) | -0.03 (0.03) | +0.02 (0.03) | -0.04 (0.02) | +0.00 (0.02) |
+| movement component M (log) | +0.58 (0.31) | -0.03 (0.55) | +0.48 (0.14) | +0.58 (0.59) | +1.78 (0.55) | +0.64 (0.26) |
+| crossing jump J (log) | -0.03 (0.08) | +0.27 (0.09) | +0.13 (0.08) | -0.07 (0.09) | +0.07 (0.07) | -0.02 (0.09) |
+| overshoot of CEX-triggered arbs (log) | +0.24 (0.05) | +0.31 (0.07) | +0.27 (0.07) | +0.16 (0.04) | +0.21 (0.04) | +0.18 (0.06) |
+
 With log volume and log liquidity added, pooled across the two regimes of each fork (regime fixed effect):
 
 | Outcome | Lorentz | Maxwell | Fermi |
