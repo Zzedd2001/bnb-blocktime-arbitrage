@@ -8,6 +8,7 @@ Outputs: figures_v6/fig1_block_interval.png, fig2_roadmap.png, fig3_event_study.
 """
 import json
 import os
+ROOT = os.environ.get("REPL_ROOT", os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")))   # package root; the paper sits in ROOT/paper
 
 import numpy as np
 import pandas as pd
@@ -21,9 +22,9 @@ from matplotlib.lines import Line2D
 C_PRE, C_POST, INK, INK2, GRID = "#2a78d6", "#eb6834", "#0b0b0b", "#52514e", "#dcdcd8"
 COL = {"Lorentz": "#2a9d8f", "Maxwell": "#2a78d6", "Fermi": "#eb6834"}
 FORKS = {
-    "Lorentz": {"bundle": "/home/claude/lorentz_tick/bundle", "dt": (3.0, 1.5), "fork": "2025-04-29T05:05:00Z", "title": "Lorentz: 3 s → 1.5 s (29 April 2025)"},
-    "Maxwell": {"bundle": "/home/claude/maxwell_tick/bundle", "dt": (1.5, 0.75), "fork": "2025-06-30T02:30:01Z", "title": "Maxwell: 1.5 s → 0.75 s (30 June 2025)"},
-    "Fermi": {"bundle": "/home/claude/fermi_tick/bundle", "dt": (0.75, 0.45), "fork": "2026-01-14T02:30:00Z", "title": "Fermi: 0.75 s → 0.45 s (14 January 2026)"},
+    "Lorentz": {"bundle": ROOT + "/lorentz_tick/bundle", "dt": (3.0, 1.5), "fork": "2025-04-29T05:05:00Z", "title": "Lorentz: 3 s → 1.5 s (29 April 2025)"},
+    "Maxwell": {"bundle": ROOT + "/maxwell_tick/bundle", "dt": (1.5, 0.75), "fork": "2025-06-30T02:30:01Z", "title": "Maxwell: 1.5 s → 0.75 s (30 June 2025)"},
+    "Fermi": {"bundle": ROOT + "/fermi_tick/bundle", "dt": (0.75, 0.45), "fork": "2026-01-14T02:30:00Z", "title": "Fermi: 0.75 s → 0.45 s (14 January 2026)"},
 }
 CORE = ["BTCB-USDT-500", "ETH-USDT-500", "WBNB-USDT-500"]
 LIQ = ["WBNB-USDT-500", "ETH-USDT-500", "BTCB-USDT-500", "WBNB-USDT-100"]
@@ -31,13 +32,13 @@ LABEL = {"WBNB-USDT-500": "WBNB/USDT 5 bp", "ETH-USDT-500": "ETH/USDT 5 bp", "BT
 PCOL = {"WBNB-USDT-500": "#0b0b0b", "ETH-USDT-500": "#2a78d6", "BTCB-USDT-500": "#eb6834", "WBNB-USDT-100": "#8a8a8a"}
 PMK = {"WBNB-USDT-500": "o", "ETH-USDT-500": "s", "BTCB-USDT-500": "^", "WBNB-USDT-100": "D"}
 ORDER = [("Lorentz", "pre"), ("Lorentz", "post"), ("Maxwell", "pre"), ("Maxwell", "post"), ("Fermi", "pre"), ("Fermi", "post")]
-OUT = os.environ.get("FIG_OUT", "/home/claude/paper/figures_v6")
-T6 = "/home/claude/paper/tables_v6"
+OUT = os.environ.get("FIG_OUT", ROOT + "/paper/figures_v6")
+T6 = ROOT + "/paper/tables_v6"
 os.makedirs(OUT, exist_ok=True)
 plt.rcParams.update({"font.family": "DejaVu Sans", "axes.unicode_minus": False, "font.size": 8, "axes.titlesize": 8.5, "axes.labelsize": 8,
                      "xtick.labelsize": 7.5, "ytick.labelsize": 7.5, "legend.fontsize": 7.5})
 W = 5.4
-K = json.load(open("/home/claude/arb_resp/cmp_bots/key_numbers.json"))
+K = json.load(open(ROOT + "/arb_resp/cmp_bots/key_numbers.json"))
 MS = json.load(open(f"{T6}/main_spec.json"))["main"]
 LF = json.load(open(f"{T6}/latency_floor_v6.json"))
 
@@ -149,7 +150,7 @@ save(fig, "fig3_event_study.png")
 # ------------------------------------------------------------------ Figure 4: the wedge between the two references, three stacked panels
 fig, axes = plt.subplots(3, 1, figsize=(W, 6.6), sharex=True)
 for ax, (fork, cfg) in zip(axes, FORKS.items()):
-    kdir = {"Lorentz": "/home/claude/lorentz/bundle/analysis", "Maxwell": "/home/claude/maxwell/analysis", "Fermi": "/home/claude/fermi/bundle/analysis"}[fork]
+    kdir = {"Lorentz": ROOT + "/lorentz/bundle/analysis", "Maxwell": ROOT + "/maxwell/analysis", "Fermi": ROOT + "/fermi/bundle/analysis"}[fork]
     k = pd.read_parquet(os.path.join(kdir, "hourly_panel.parquet"))
     t = pd.read_parquet(os.path.join(cfg["bundle"], "analysis_agg", "hourly_panel.parquet"))
     k["hour"] = pd.to_datetime(k["hour"], utc=True)
@@ -249,7 +250,7 @@ save(fig, "fig6_latency_intercepts.png")
 
 # ------------------------------------------------------------------ Figure 7: fork effect by component, pool by pool, main specification (RD jump, ±30 d)
 def comp_fit(fork, pool, y, days=30):
-    d = pd.read_csv(f"/home/claude/arb_resp/comp_bots/{fork}/arb_response_bots/component_panels/{pool}.csv")
+    d = pd.read_csv(ROOT + f"/arb_resp/comp_bots/{fork}/arb_response_bots/component_panels/{pool}.csv")
     d = d[(d.t_days >= -days) & (d.t_days < days) & (d[y] > 0) & d[y].notna() & (d["sigma_ps"] > 0) & (d["liq_mean"] > 0) & (d["volume"] > 0)].copy()
     if y + "_n" in d:
         d = d[d[y + "_n"] >= 5]
@@ -314,7 +315,7 @@ fig.tight_layout()
 save(fig, "figA1_sigma_overshoot.png")
 
 # ------------------------------------------------------------------ Figure D1 (former D2): twelve-point test, two stacked panels
-P4 = pd.read_csv("/home/claude/arb_resp/cmp_bots/R4_points.csv")
+P4 = pd.read_csv(ROOT + "/arb_resp/cmp_bots/R4_points.csv")
 res4 = K["R4"]
 fig, axes = plt.subplots(2, 1, figsize=(W, 7.6))
 for ax, col, ttl, rk in ((axes[0], "impl", "τ-implied effect log(E√τ₁ / E√τ₀)", "τ-implied"), (axes[1], "comp", "composite prediction: only the movement component shrinks", "composite (move-only)")):

@@ -33,17 +33,18 @@ from scipy import stats
 
 CORE = ["WBNB-USDT-500", "ETH-USDT-500", "BTCB-USDT-500"]
 DT = {"Lorentz": (3.0, 1.5), "Maxwell": (1.5, 0.75), "Fermi": (0.75, 0.45)}
-PILOT = "/home/claude/dex-lit/bnb_blocktime_pilot"
+ROOT = os.environ.get("REPL_ROOT", os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")))   # package root
+PILOT = ROOT + "/dex-lit/bnb_blocktime_pilot"
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tables_v6")
 
 rows = []
 for fork in DT:
     public = set(pd.read_csv(f"{PILOT}/public_contracts_{fork}.csv")["sender"].str.lower())
-    panel = pd.read_parquet(f"/home/claude/{fork.lower()}_tick/bundle/analysis_agg/hourly_panel.parquet")
+    panel = pd.read_parquet(ROOT + f"/{fork.lower()}_tick/bundle/analysis_agg/hourly_panel.parquet")
     panel = panel[panel["pool"].isin(CORE)].copy()
     panel["hour_ts"] = pd.to_datetime(panel["hour"], utc=True).dt.tz_localize(None)
     for pool in CORE:
-        A = pd.read_parquet(f"/home/claude/arb_resp/ops/{fork}/arb_response/operators/{pool}_arbs_tx.parquet",
+        A = pd.read_parquet(ROOT + f"/arb_resp/ops/{fork}/arb_response/operators/{pool}_arbs_tx.parquet",
                             columns=["sender", "ts_ms", "days_from_fork", "trigger", "tau_ms", "k_blocks", "jump_bps", "fee_rate"])
         A = A[A["days_from_fork"].abs() <= 30]
         A = A[~A["sender"].str.lower().isin(public)]
