@@ -1,10 +1,17 @@
 # Replication package — *Faster Blocks Fall Short of the Square-Root Law: Arbitrage Rents and Latency across Three Block-Interval Reductions on BNB Chain*
 
-Replication package accompanying the revised manuscript (Digital Finance, revision 1, September 2026).
-It contains the data pipeline, the processed data underlying every result, the estimation scripts that
-produce every table and figure of the paper, and a manifest (`MANIFEST.md`) that lists, for each table and
-figure, the script and the input files that generate it. The retrieval scripts read API credentials from
-environment variables and none is included.
+Replication package for the paper: the data pipeline, the processed data underlying every result, the
+estimation scripts that produce every table and figure, the tables and figures they produce, and a manifest
+(`MANIFEST.md`) that lists, for each table and figure, the script and the input files that generate it. The
+manuscript itself is not part of the repository. The retrieval scripts read API credentials from environment
+variables and none is included.
+
+Table and figure numbers in `MANIFEST.md` and in the script docstrings follow the article version of the
+manuscript; the Scientific Reports version renumbers them as follows: article Table 3 → Table 1, Table 4 →
+Table 2, Table 5 → Table 3, Table 2 → Table 4, Table 1 → Supplementary Table S6, Table 6 → S4, Table 7 → S3,
+Table D5 → S2; Figures 1–3 are unchanged; the appendix tables keep their letters in the Supplementary
+Information; Supplementary Tables S5 and S7 are produced by `paper/tau_sigma_clean.py` and
+`paper/table3_pvalues.py`.
 
 ## Contents
 
@@ -14,11 +21,11 @@ replication_v6/
   MANIFEST.md                     table/figure -> script -> inputs
   LICENSE                         MIT
   requirements.txt                Python packages (versions used)
-  run_all.sh                      regenerates every v6 table and figure from the processed data (~10 min)
+  run_all.sh                      regenerates every table and figure from the processed data (~10 min)
   check_anonymity.sh              greps the package for names, e-mail addresses, home paths and API keys
   assemble_large_data.sh          restores the arbitrage-level tables from the pipeline's archives
   dex-lit/bnb_blocktime_pilot/    data pipeline (Section 4, Appendices A and D)
-  paper/                          estimation scripts, manuscript sources (paper/v6/*.md), tables_v6/, figures_v6/
+  paper/                          estimation scripts and their outputs (tables_v6/, figures_v6/, tables_v3/, tables_v41/, three_forks*/)
   lorentz_tick/ maxwell_tick/ fermi_tick/
                                   hourly pool panels and regime tables, trade reference (Sections 4-7)
   lorentz/ maxwell/ fermi/        the same with the 1-second candle reference, and the lag-250 ms panels (Appendix C)
@@ -38,15 +45,13 @@ pipeline (`arb_response.py`) from the swap-level data in a few minutes per pool.
 ## Requirements
 
 Python 3.11+ with the packages in `requirements.txt` (pandas, numpy, pyarrow, scipy, statsmodels, matplotlib;
-`hypersync` and `requests` only for the retrieval stage). The manuscript is typeset from `paper/paper_v6.md`
-with `paper/sn/md2sn.py` (Springer `sn-jnl` class, `latexmk`) and exported to Word with `paper/md2docx.js`
-(Node.js, `docx` package).
+`hypersync` and `requests` only for the retrieval stage).
 
 ```
 pip install -r requirements.txt
 ```
 
-## Reproducing the tables and figures (processed data -> paper)
+## Reproducing the tables and figures (processed data -> tables and figures)
 
 Every script resolves its paths from `REPL_ROOT` (default: this directory). From the package root:
 
@@ -57,11 +62,12 @@ bash run_all.sh
 runs, in order, `paper/main_spec.py` (Table 3, Table D5, `tables_v6/main_spec.json`), `paper/lp_levels.py`
 (Table 4), `paper/latency_floor_v6.py` (Table 7), `paper/grid_v6.py` (Tables B1-B3), `paper/vol_competition.py`
 (Table 5, Tables D2-D3), `paper/classification_table.py` (Table B5), `paper/build_figures_v6.py` (Figures 1-3,
-A1-A2, B1, C1, D1-D2) and `paper/make_v6.py` (assembles `paper/paper_v6.md` from `paper/v6/*.md`, the tables and
-`paper/paper_df.md`, the source of the appendix tables). The outputs are written to `paper/tables_v6/`,
-`paper/figures_v6/` and `paper/paper_v6.md` and can be compared with the copies shipped in the package.
+A1-A2, B1, C1, D1-D2), `paper/tau_sigma_clean.py` (Supplementary Table S5; needs the Release archives like
+`vol_competition.py`) and `paper/table3_pvalues.py` (Supplementary Table S7). The outputs are written to
+`paper/tables_v6/` and `paper/figures_v6/` and can be compared with the copies shipped in the package: the
+markdown tables reproduce exactly; the JSON files can differ in the last digits and the PNG files in their bytes
+across machines (floating-point and rendering differences), which is expected.
 `paper/vol_competition.py` (Table 5, Tables D2-D3) reads the arbitrage-level operator tables and therefore needs the Release archives restored with `assemble_large_data.sh`; `run_all.sh` skips it otherwise and keeps the shipped outputs. `paper/sim_sigma_elasticity.py` regenerates Table D1 (it simulates five synthetic forks; about 10 minutes). `paper/did_crosschain.py` estimates the cross-chain difference-in-differences once control panels of the same pairs on another chain are placed at `<fork>_ctrl/bundle/analysis_agg/hourly_panel.parquet`; no such panels are part of this package.
-To typeset: `python3 paper/sn/md2sn.py paper/paper_v6.md build && cd build && bash build.sh`.
 
 The scripts that produced the appendix tables inherited from the first submission (`paper/three_forks.py`,
 `paper/build_tables_v41.py`, `paper/build_tables_v41_bots.py`, `paper/robust_bots.py`, `paper/latency_floor.py`,

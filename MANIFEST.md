@@ -1,4 +1,6 @@
-# Manifest: tables and figures of the revised manuscript, the scripts and the inputs that generate them
+# Manifest: tables and figures, the scripts and the inputs that generate them
+
+Numbers follow the article version of the manuscript; see `README.md` for the correspondence with the Scientific Reports version.
 
 Paths are relative to the package root. "Hourly panels" means `<fork>_tick/bundle/analysis_agg/hourly_panel.parquet`
 for the three forks (trade reference, ±30 days; `analysis_agg_14d/` for ±14 days); "component panels" means
@@ -10,13 +12,13 @@ The pipeline scripts that produce these inputs from the raw data are listed at t
 
 | Item | Content | Script | Inputs |
 |---|---|---|---|
-| Table 1 | The three block-interval reductions | compiled in `paper/v6/02_setting.md` from BNB Chain release notes (BEP-524, BEP-563, BEP-590, BEP-126) | block counts and hourly mean intervals: `<fork>_tick/bundle/results_agg/blocks_hourly.csv`; swap counts: `<fork>_tick/bundle/summary_agg.json` |
-| Table 2 | Pools, sample sizes, pre-fork exposure | compiled in `paper/v6/02_setting.md` | `<fork>_tick/bundle/summary_agg.json`, `<fork>_tick/bundle/analysis_agg/table_exposure.md` (pipeline `full_analysis.py`) |
+| Table 1 | The three block-interval reductions | compiled by hand from BNB Chain release notes (BEP-524, BEP-563, BEP-590, BEP-126) | block counts and hourly mean intervals: `<fork>_tick/bundle/results_agg/blocks_hourly.csv`; swap counts: `<fork>_tick/bundle/summary_agg.json` |
+| Table 2 | Pools, sample sizes, pre-fork exposure | compiled by hand | `<fork>_tick/bundle/summary_agg.json`, `<fork>_tick/bundle/analysis_agg/table_exposure.md` (pipeline `full_analysis.py`) |
 | Table 3 | Main specification, all outcomes and classifications, with placebos and elasticities | `paper/main_spec.py` → `paper/tables_v6/table_main.md`, `main_spec.json` | hourly panels; component panels |
 | Figure 1 | Overshoot along the roadmap vs the √Δt law and the latency-floor model | `paper/build_figures_v6.py` → `paper/figures_v6/fig2_roadmap.png` | `paper/tables_v6/main_spec.json`, `latency_floor_v6.json` |
 | Table 4 | LPs' loss / fee income at two mark-out horizons; fee-tier margin | `paper/lp_levels.py` → `table_lp_levels.md`, `table_fee_tier.md`, `lp_levels.json` | hourly panels (`fee_income`, `lp_gain`, `arb_loss`, `markout_30s`, `volume`, `liquidity`) |
 | Table 5 | Elasticities to σ within regimes, with and without volume and liquidity controls: response times, competition, components | `paper/vol_competition.py` → `paper/vol_competition.md`, `vol_competition.json`, `paper/tables_v6/table_volcomp_combined.md` | `arb_resp/ops/<Fork>/arb_response/operators/<pool>_arbs_tx.parquet` (Release archives); hourly panels (σ, volume, liquidity) |
-| Table 6 | Predictions, tests and verdicts | compiled in `paper/v6/06b_results.md` from Tables 3–5, 7 and Figures 2–3 | — |
+| Table 6 | Predictions, tests and verdicts | compiled by hand from Tables 3–5, 7 and Figures 2–3 | — |
 | Table 7 | Latency-floor model fitted to the main-specification estimates | `paper/latency_floor_v6.py` → `table_latency_floor.md`, `latency_floor_v6.json` | `paper/tables_v6/main_spec.json` |
 | Figure 2 | Share of arbitrages landing in the first block vs Δt | `paper/build_figures_v6.py` → `fig5_first_block.png` | `arb_resp/cmp_bots/key_numbers.json` (from `arb_resp/compare_bots.py`) |
 | Figure 3 | Fork effect by component, four pools, main specification | `paper/build_figures_v6.py` → `fig7_component_effects.png`, `paper/tables_v6/components_pool_main.json` | component panels; hourly panels |
@@ -73,9 +75,12 @@ The pipeline scripts that produce these inputs from the raw data are listed at t
 | Tables D11–D16 (operators, entry/exit, gas, top operators, wallet pools, router flow) | `arb_resp/ops/ops_analysis.py` → `arb_resp/ops/out/R1…R7.md`, `out2/`; `paper/build_tables_v41.py` → `paper/tables_v41/E4…E7.md` | `arb_resp/ops/<Fork>/arb_response/operators/<pool>_contracts.csv` and `<pool>_arbs_tx.parquet` (large-data archive); `arb_resp/ops/public_lists/` |
 | Validation on simulated data (latency recovery, selection) | pipeline `simulate_response_test.py` | writes `sim_response/` and runs `arb_response.py` on it |
 
-## Appendix E and the manuscript
+## Supplementary Tables added in the Scientific Reports version
 
-`paper/make_v6.py` assembles `paper/paper_v6.md` from `paper/v6/*.md` (body), `paper/tables_v6/*.md` (grid and classification tables) and `paper/paper_df.md` (the appendices of the first submission, edited in place by the script); `paper/sn/md2sn.py` typesets it in the Springer `sn-jnl` class; `paper/md2docx.js` exports Word.
+| Item | Script | Inputs / outputs |
+|---|---|---|
+| Supplementary Table S5 (response time and volatility on the subsamples with an unambiguous opening time; pooled elasticities; elasticity by size of the crossing jump) | `paper/tau_sigma_clean.py` → `paper/tables_v6/table_tau_sigma_clean.md`, `tau_sigma_clean.json` | `arb_resp/ops/<Fork>/arb_response/operators/<pool>_arbs_tx.parquet` (Release archives); hourly panels; `dex-lit/bnb_blocktime_pilot/public_contracts_<Fork>.csv` |
+| Supplementary Table S7 (exact p-values of the Table 5 cells, t(G−1)) | `paper/table3_pvalues.py` → `paper/tables_v6/table_volcomp_pvalues.md` | `paper/vol_competition.json` (and `paper/vol_competition_panel.parquet` for the cluster counts when present) |
 
 ## Pipeline scripts (raw data → processed data), `dex-lit/bnb_blocktime_pilot/`
 
